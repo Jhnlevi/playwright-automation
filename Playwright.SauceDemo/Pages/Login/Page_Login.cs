@@ -1,4 +1,5 @@
 ﻿using Microsoft.Playwright;
+using Playwright.SauceDemo.Constants.Login;
 
 namespace Playwright.SauceDemo.Pages.Login
 {
@@ -14,10 +15,10 @@ namespace Playwright.SauceDemo.Pages.Login
 
             _elements = new Dictionary<string, ILocator>
             {
-                { "username", _page.GetByPlaceholder("Username") },
-                { "password", _page.GetByPlaceholder("Password") },
-                { "login_button", _page.Locator("#login-button") },
-                { "login_error", _page.Locator("[data-test=\"error\"]") }
+                { Field_Login.LOGIN_USERNAME, _page.GetByPlaceholder("Username") },
+                { Field_Login.LOGIN_PASSWORD, _page.GetByPlaceholder("Password") },
+                { Field_Login.LOGIN_BUTTON, _page.Locator("#login-button") },
+                { Field_Login.LOGIN_ERROR_MESSAGE, _page.Locator("[data-test=\"error\"]") }
             };
         }
 
