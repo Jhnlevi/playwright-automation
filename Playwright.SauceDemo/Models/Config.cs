@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace Playwright.SauceDemo.Models
 {
     internal class Config
     {
+        [JsonPropertyName("appName")]
+        public string AppName { get; set; } = null!;
+
+        [JsonPropertyName("baseUrl")]
+        public string BaseUrl { get; set; } = null!;
     }
 }
