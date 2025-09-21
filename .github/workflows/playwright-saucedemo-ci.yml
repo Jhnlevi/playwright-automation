@@ -20,14 +20,14 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Restore SauceDemo project
-      run: dotnet restore Playwright.SauceDemo/Playwright.SauceDemo.csproj
+    # - name: Restore SauceDemo project
+    #   run: dotnet restore Playwright.SauceDemo/Playwright.SauceDemo.csproj
 
     - name: Build SauceDemo project
-      run: dotnet build Playwright.SauceDemo/Playwright.SauceDemo.csproj --no-restore --configuration Release
+      run: dotnet build Playwright.SauceDemo/Playwright.SauceDemo.csproj --configuration Release
 
     - name: Install playwright browsers
-      run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+      run: pwsh Playwright.SauceDemo/bin/Debug/net8.0/playwright.ps1 install --with-deps
 
     - name: Run SauceDemo tests
       run: dotnet test Playwright.SauceDemo/Playwright.SauceDemo.csproj --no-build --configuration Release --logger "trx;LogFileName=SauceDemo_Test_Results.trx"
