@@ -5,7 +5,7 @@ namespace Playwright.SauceDemo.Utils
 {
    internal static class Util_ReportManager
    {
-      private static ExtentTest? _test;
+      private static ExtentTest _test = null!;
       private static ExtentReports? _extent;
 
       // Enum for report logging.
