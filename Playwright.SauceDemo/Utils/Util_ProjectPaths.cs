@@ -3,9 +3,14 @@
     internal static class Util_ProjectPaths
     {
         /// <summary>
-        /// Returns the appsettings path
+        /// Returns the appsettings path.
         /// </summary>
         public static string GetConfigPath() => GetProjectRoot();
+
+        /// <summary>
+        /// Returns the path of 'Reports' folder.
+        /// </summary>
+        public static string GetReportPath() => Path.Combine(GetProjectRoot(), "Reports");
 
         private static string GetProjectRoot()
         {
