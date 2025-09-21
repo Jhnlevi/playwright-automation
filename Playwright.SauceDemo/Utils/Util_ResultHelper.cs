@@ -5,7 +5,7 @@ namespace Playwright.SauceDemo.Utils
    internal static class Util_ResultHelper
    {
       //Path = $"Report/Screenshots/{name}.png"
-      public static async Task LogResults(
+      public static async Task LogResultsAsync(
          IPage page,
          string status,
          string message,
