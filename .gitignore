@@ -391,3 +391,7 @@ TestResult*/
 # Artifacts (screenshots, videos, traces if you enable them)
 test-results/
 playwright-report/
+
+# Test Results
+TestResults/
+Reports/
