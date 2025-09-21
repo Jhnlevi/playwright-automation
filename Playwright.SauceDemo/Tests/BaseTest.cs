@@ -22,6 +22,19 @@ namespace Playwright.SauceDemo.Tests
          Util_ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
       }
 
+      [TearDown]
+      public async Task Teardown()
+      {
+         var context = TestContext.CurrentContext;
+         var status = context.Result.Outcome.Status.ToString();
+         var message = context.Result.Message;
+         var trace = context.Result.StackTrace;
+         var name = context.Test.MethodName;
+
+         // Log results in report.
+         await Util_ResultHelper.LogResultsAsync(Page, status, message, trace!, name!);
+      }
+
       // Close report.
       [OneTimeTearDown]
       public void ReportClose() => Util_ReportManager.QuitExtentReport();
