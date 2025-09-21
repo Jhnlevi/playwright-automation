@@ -5,7 +5,7 @@ namespace Playwright.SauceDemo.Utils
 {
    internal static class Util_ReportManager
    {
-      private static ExtentTest _test = null!;
+      private static ExtentTest? _test;
       private static ExtentReports? _extent;
 
       // Enum for report logging.
@@ -49,7 +49,7 @@ namespace Playwright.SauceDemo.Utils
       /// Creates an instance to extent test
       /// </summary>
       /// <param name="name">Defaults to 'Test' if not name is specified.</param>
-      public static void CreateExtentTest(string name = "Test") => GetExtent().CreateTest(name);
+      public static void CreateExtentTest(string name = "Test") => _test = GetExtent().CreateTest(name);
 
       /// <summary>
       /// Attaches a screenshot to the current test in the report.
