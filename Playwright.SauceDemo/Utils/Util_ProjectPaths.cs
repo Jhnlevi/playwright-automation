@@ -1,31 +1,37 @@
 ﻿namespace Playwright.SauceDemo.Utils
 {
-    internal static class Util_ProjectPaths
-    {
-        /// <summary>
-        /// Returns the appsettings path.
-        /// </summary>
-        public static string GetConfigPath() => GetProjectRoot();
+   internal static class Util_ProjectPaths
+   {
+      /// <summary>
+      /// Returns the appsettings path.
+      /// </summary>
+      public static string GetConfigPath() => GetProjectRoot();
 
-        /// <summary>
-        /// Returns the path of 'Reports' folder.
-        /// </summary>
-        public static string GetReportPath() => Path.Combine(GetProjectRoot(), "Reports");
+      /// <summary>
+      /// Returns the path of 'Reports' folder.
+      /// </summary>
+      public static string GetReportPath() => Path.Combine(GetProjectRoot(), "Reports");
 
-        private static string GetProjectRoot()
-        {
-            // First check: walk up the directories until csproj is found.
-            var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            while (currentDirectory != null)
-            {
-                if (currentDirectory.GetFiles("*.csproj").Any())
-                    return currentDirectory.FullName;
+      /// <summary>
+      /// Returns the path of 'Screenshots' folder inside 'Reports'.
+      /// </summary>
+      /// <returns></returns>
+      public static string GetScreenshotPath() => Path.Combine(GetProjectRoot(), "Reports", "Screenshots");
 
-                currentDirectory = currentDirectory.Parent;
-            }
+      private static string GetProjectRoot()
+      {
+         // First check: walk up the directories until csproj is found.
+         var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+         while (currentDirectory != null)
+         {
+            if (currentDirectory.GetFiles("*.csproj").Any())
+               return currentDirectory.FullName;
 
-            // Second check: return current directory.
-            return Directory.GetCurrentDirectory();
-        }
-    }
+            currentDirectory = currentDirectory.Parent;
+         }
+
+         // Second check: return current directory.
+         return Directory.GetCurrentDirectory();
+      }
+   }
 }
