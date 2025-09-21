@@ -19,7 +19,7 @@ namespace Playwright.SauceDemo.Tests
          _config = Util_ConfigLoader.Load<Config>("appsettings.json", "ConfigSettings");
 
          // Initialize report test.
-         Util_ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.FullName);
+         Util_ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
       }
 
       // Close report.
