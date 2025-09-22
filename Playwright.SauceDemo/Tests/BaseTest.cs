@@ -16,7 +16,7 @@ namespace Playwright.SauceDemo.Tests
       public virtual void Setup()
       {
          // Load app config settings.
-         _config = Util_ConfigLoader.Load<Config>("appsettings.json", "ConfigSettings");
+         _config = Util_ConfigHelper.Load<Config>("appsettings.json", "ConfigSettings");
 
          // Initialize report test.
          Util_ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
