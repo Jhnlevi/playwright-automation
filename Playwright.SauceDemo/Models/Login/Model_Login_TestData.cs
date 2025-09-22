@@ -3,7 +3,7 @@
 namespace Playwright.SauceDemo.Models.Login
 {
    // Test data root.
-   internal class LoginTestData
+   internal class Model_Login_TestData
    {
       [JsonPropertyName("testCases")]
       public List<LoginTestCase>? TestCases { get; set; }
