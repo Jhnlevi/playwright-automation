@@ -47,7 +47,7 @@ namespace Playwright.SauceDemo.Models.Login
    internal class ExpectedResult
    {
       [JsonPropertyName("success")]
-      public string success { get; set; } = null!;
+      public bool success { get; set; }
 
       [JsonPropertyName("message")]
       public string message { get; set; } = null!;
