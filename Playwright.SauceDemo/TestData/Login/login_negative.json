@@ -1,10 +1,104 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_Login_0002",
+            "description": "Error message appears with invalid username.",
+            "type": "invalid_input",
+            "data": {
+                "userName": "new_standard_user",
+                "password": "secret_sauce"
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Login failed when provided with invalid username."
+            }
+        },
+        {
+            "id": "TC_Login_0002_1",
+            "description": "Error message appears with missing username.",
+            "type": "invalid_input",
+            "data": {
+                "userName": "",
+                "password": "secret_sauce"
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Login failed when provided with missing username.",
+                "fieldErrors": [
+                    {
+                        "field": "username",
+                        "message": "Required"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_Login_0003",
+            "description": "Error message appears with invalid password.",
+            "type": "invalid_input",
+            "data": {
+                "userName": "standard_user",
+                "password": "new_secret_sauce"
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Login failed when provided with invalid password."
+            }
+        },
+        {
+            "id": "TC_Login_0003_1",
+            "description": "Error message appears with missing password.",
+            "type": "invalid_input",
+            "data": {
+                "userName": "standard_user",
+                "password": ""
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Login failed when provided with missing password.",
+                "fieldErrors": [
+                    {
+                        "field": "password",
+                        "message": "Required"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_Login_0004",
+            "description": "Error message appears when both fields are blank.",
+            "type": "invalid_input",
+            "data": {
+                "userName": "",
+                "password": ""
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Login failed when provided with missing username and password.",
+                "fieldErrors": [
+                    {
+                        "field": "password",
+                        "message": "Required"
+                    },
+                    {
+                        "field": "password",
+                        "message": "Required"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_Login_0006",
+            "description": "Locked-out user cannot log in.",
+            "type": "locked_out_user",
+            "data": {
+                "userName": "locked_out_user",
+                "password": "secret_sauce"
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Login fails for locked_out_user."
+            }
+        }
+    ]
 }

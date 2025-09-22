@@ -1,10 +1,40 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_Login_0001_1",
+            "description": "User can log in with valid credentials.",
+            "data": {
+                "userName": "standard_user",
+                "password": "secret_sauce"
+            },
+            "expectedResult": {
+                "success": true,
+                "message": "Login successful for standard_user."
+            }
+        },
+        {
+            "id": "TC_Login_0001_2",
+            "description": "User can log in with valid credentials.",
+            "data": {
+                "userName": "problem_user",
+                "password": "secret_sauce"
+            },
+            "expectedResult": {
+                "success": true,
+                "message": "Login successful problem_user."
+            }
+        },
+        {
+            "id": "TC_Login_0001_3",
+            "description": "User can log in with valid credentials.",
+            "data": {
+                "userName": "performance_glitch_user",
+                "password": "secret_sauce"
+            },
+            "expectedResult": {
+                "success": true,
+                "message": "Login successful performance_glitch_user."
+            }
+        }
+    ] 
 }
