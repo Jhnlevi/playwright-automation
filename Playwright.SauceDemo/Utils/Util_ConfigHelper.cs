@@ -2,7 +2,7 @@
 
 namespace Playwright.SauceDemo.Utils
 {
-    internal static class Util_ConfigLoader
+    internal static class Util_ConfigHelper
     {
         /// <summary>
         /// Loads the entire config file

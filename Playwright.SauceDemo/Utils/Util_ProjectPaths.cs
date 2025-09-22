@@ -18,6 +18,8 @@
       /// <returns></returns>
       public static string GetScreenshotPath() => Path.Combine(GetProjectRoot(), "Reports", "Screenshots");
 
+      public static string GetTestDataPath() => Path.Combine(GetProjectRoot(), "TestData");
+
       private static string GetProjectRoot()
       {
          // First check: walk up the directories until csproj is found.

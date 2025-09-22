@@ -26,6 +26,11 @@ namespace Playwright.SauceDemo.Utils
          var report = Path.Combine(directory, fileName);
 
          var htmlReporter = new ExtentSparkReporter(report);
+         htmlReporter.Config.DocumentTitle = $"{name} Test Report";
+         htmlReporter.Config.ReportName = $"{name} - Playwright Report";
+         htmlReporter.Config.Theme = AventStack.ExtentReports.Reporter.Config.Theme.Dark;
+         htmlReporter.Config.TimelineEnabled = true;
+
          _extent = new ExtentReports();
          _extent.AttachReporter(htmlReporter);
          _extent.AddSystemInfo("OS", Environment.OSVersion.ToString());
