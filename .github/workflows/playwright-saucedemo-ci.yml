@@ -1,18 +1,19 @@
-name: Playwright (.NET) SauceDemo Tests
+name: CI - Playwright Projects
 
 on:
   push:
-    branches: [ main, master ]
+    branches-ignore: [ main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs: 
-  build-and-test:
+  # Build solution
+  build:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout the code
+    - name: Checkout actions
       uses: actions/checkout@v4
 
     - name: Setup .NET
@@ -20,22 +21,36 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    # - name: Restore SauceDemo project
-    #   run: dotnet restore Playwright.SauceDemo/Playwright.SauceDemo.csproj
+    - name: Build Project Solution
+      run: dotnet build ./PlaywrightAutomation.sln --configuration Release
 
-    - name: Build SauceDemo project
-      run: dotnet build Playwright.SauceDemo/Playwright.SauceDemo.csproj --configuration Release
+  # Run tests for each project and category
+  tests:
+    needs: build
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [ Playwright.SauceDemo ]
+        category: [ UI, E2E ]
+
+    steps:
+    - name: Checkout actions
+      uses: actions/checkout@v4
 
     - name: Install playwright browsers
-      run: pwsh Playwright.SauceDemo/bin/Release/net8.0/playwright.ps1 install --with-deps
+      run: pwsh ${{ matrix.project }}/bin/Release/net8.0/playwright.ps1 install --with-deps
 
-    - name: Run SauceDemo tests
-      run: dotnet test Playwright.SauceDemo/Playwright.SauceDemo.csproj --no-build --configuration Release --logger "trx;LogFileName=SauceDemo_Test_Results.trx"
+    - name: Run ${{ matrix.project }} - ${{ matrix.category }} tests
+      run: |
+          dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj 
+            --filter Category=${{ matrix.category }} 
+            --no-build --configuration Release 
+            --logger "trx;LogFileName=${{ matrix.project }}_${{ matrix.category }}_Results.trx"
 
-    - name: Upload artifacts
+    - name: Upload ${{ matrix.project }} test results
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: SauceDemo-Report
-        path: Playwright.SauceDemo/Reports/
-
+        name: Reports-${{ matrix.project }}-${{ matrix.category }}
+        path: ${{ matrix.project }}/Reports/
