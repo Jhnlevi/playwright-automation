@@ -27,7 +27,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Build project solution
-      run: dotnet build ./PlaywrightAutomation.sln --configuration Release
+      run: dotnet build ${{ matrix.project }}/${{ matrix.project }}.csproj --configuration Release
     
     - name: Install Playwright browsers
       run: pwsh ${{ matrix.project }}/bin/Release/net8.0/playwright.ps1 install --with-deps
@@ -41,19 +41,14 @@ jobs:
     strategy:
       matrix:
         project: [ Playwright.SauceDemo ]
-        category: [ UI, E2E ]
+        category: [ UI, E2E]
 
     steps:
     - name: Checkout actions
       uses: actions/checkout@v4
 
     - name: Run ${{ matrix.project }} - ${{ matrix.category }} tests
-      run: |
-          dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj 
-            --filter Category=${{ matrix.category }} 
-            --no-build 
-            --configuration Release 
-            --logger "trx;LogFileName=${{ matrix.project }}_${{ matrix.category }}_Results.trx"
+      run: dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj --filter Category=${{ matrix.category }} --no-build --configuration Release --logger "trx;LogFileName=${{ matrix.project }}_${{ matrix.category }}_Results.trx"
 
     - name: Upload ${{ matrix.project }} test results
       if: always()
