@@ -1,4 +1,4 @@
-name: CI - Playwright Projects
+name: CI (Playwright) Build & Tests
 
 on:
   push:
@@ -12,6 +12,11 @@ jobs:
   build:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        project: [ Playwright.SauceDemo ]
+
     steps:
     - name: Checkout actions
       uses: actions/checkout@v4
@@ -21,14 +26,18 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Build Project Solution
+    - name: Build project solution
       run: dotnet build ./PlaywrightAutomation.sln --configuration Release
+    
+    - name: Install Playwright browsers
+      run: pwsh ${{ matrix.project }}/bin/Release/net8.0/playwright.ps1 install --with-deps
 
   # Run tests for each project and category
   tests:
     needs: build
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         project: [ Playwright.SauceDemo ]
@@ -38,14 +47,12 @@ jobs:
     - name: Checkout actions
       uses: actions/checkout@v4
 
-    - name: Install playwright browsers
-      run: pwsh ${{ matrix.project }}/bin/Release/net8.0/playwright.ps1 install --with-deps
-
     - name: Run ${{ matrix.project }} - ${{ matrix.category }} tests
       run: |
           dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj 
             --filter Category=${{ matrix.category }} 
-            --no-build --configuration Release 
+            --no-build 
+            --configuration Release 
             --logger "trx;LogFileName=${{ matrix.project }}_${{ matrix.category }}_Results.trx"
 
     - name: Upload ${{ matrix.project }} test results
