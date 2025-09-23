@@ -2,7 +2,7 @@
 
 namespace Playwright.SauceDemo.Models
 {
-    internal class Config
+    internal class AppSettings
     {
         [JsonPropertyName("appName")]
         public string AppName { get; set; } = null!;

@@ -2,12 +2,12 @@
 
 namespace Playwright.SauceDemo.Utils.Provider
 {
-   internal class Provider_Login
+   internal class LoginProvider
    {
       // Constants:
       private const string moduleName = "Login";
-      private const string positiveFile = "login_positive.json";
-      private const string negativeFile = "login_negative.json";
+      private const string positiveFile = "LoginTestData_Positive.json";
+      private const string negativeFile = "LoginTestData_Negative.json";
 
       /// <summary>
       /// Get single test case by Id or Type.
@@ -15,7 +15,7 @@ namespace Playwright.SauceDemo.Utils.Provider
       /// <returns>The test case with matching Id or Type or both.</returns>
       public static LoginTestCase? GetRecord(string fileName, string id, string? type = null)
       {
-         var data = Util_JsonHelper.LoadJson<Model_Login_TestData>(moduleName, fileName);
+         var data = JsonHelper.LoadJson<LoginTestData>(moduleName, fileName);
 
          return data?.TestCases?
             .FirstOrDefault(tc => tc.Id == id && (string.IsNullOrEmpty(type) || tc.Type == type));
@@ -27,7 +27,7 @@ namespace Playwright.SauceDemo.Utils.Provider
       /// <returns>All test cases.</returns>
       public static IEnumerable<LoginTestCase> GetRecords(string fileName)
       {
-         var data = Util_JsonHelper.LoadJson<Model_Login_TestData>(moduleName, fileName);
+         var data = JsonHelper.LoadJson<LoginTestData>(moduleName, fileName);
          return data?.TestCases ?? Enumerable.Empty<LoginTestCase>();
       }
 
