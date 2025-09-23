@@ -2,7 +2,7 @@
 
 namespace Playwright.SauceDemo.Utils
 {
-   internal static class Util_JsonHelper
+   internal static class JsonHelper
    {
       /// <summary>
       /// Reads the .json file
@@ -17,8 +17,8 @@ namespace Playwright.SauceDemo.Utils
       public static T LoadJson<T>(string module = "", string file = "")
       {
          var directory = string.IsNullOrWhiteSpace(module)
-            ? Util_ProjectPaths.GetTestDataPath()
-            : Path.Combine(Util_ProjectPaths.GetTestDataPath(), module);
+            ? PathsHelper.GetTestDataPath()
+            : Path.Combine(PathsHelper.GetTestDataPath(), module);
 
          if (!Directory.Exists(directory))
             throw new DirectoryNotFoundException("Test data module folder not found.");

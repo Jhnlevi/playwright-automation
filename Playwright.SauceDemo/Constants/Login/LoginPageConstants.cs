@@ -1,6 +1,6 @@
 ﻿namespace Playwright.SauceDemo.Constants.Login
 {
-    internal class Field_Login
+    internal class LoginPageConstants
     {
         public const string LOGIN_USERNAME = "login-username";
         public const string LOGIN_PASSWORD = "login-password";

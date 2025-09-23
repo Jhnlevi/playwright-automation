@@ -3,22 +3,22 @@ using Playwright.SauceDemo.Constants.Login;
 
 namespace Playwright.SauceDemo.Pages.Login
 {
-   internal class Page_Login
+   internal class LoginPage
    {
       private readonly IPage _page;
       private readonly Dictionary<string, ILocator> _elements;
 
       // Constructor
-      public Page_Login(IPage page)
+      public LoginPage(IPage page)
       {
          _page = page;
 
          _elements = new Dictionary<string, ILocator>
             {
-                { Field_Login.LOGIN_USERNAME, _page.GetByPlaceholder("Username") },
-                { Field_Login.LOGIN_PASSWORD, _page.GetByPlaceholder("Password") },
-                { Field_Login.LOGIN_BUTTON, _page.Locator("#login-button") },
-                { Field_Login.LOGIN_ERROR_MESSAGE, _page.Locator("[data-test=\"error\"]") }
+                { LoginPageConstants.LOGIN_USERNAME, _page.GetByPlaceholder("Username") },
+                { LoginPageConstants.LOGIN_PASSWORD, _page.GetByPlaceholder("Password") },
+                { LoginPageConstants.LOGIN_BUTTON, _page.Locator("#login-button") },
+                { LoginPageConstants.LOGIN_ERROR_MESSAGE, _page.Locator("[data-test=\"error\"]") }
             };
       }
 

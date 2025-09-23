@@ -3,7 +3,7 @@ using AventStack.ExtentReports.Reporter;
 
 namespace Playwright.SauceDemo.Utils
 {
-   internal static class Util_ReportManager
+   internal static class ReportManager
    {
       private static ExtentTest? _test;
       private static ExtentReports? _extent;
@@ -17,7 +17,7 @@ namespace Playwright.SauceDemo.Utils
       public static void CreateExtentReport(string name = "Default", string? path = null)
       {
          // Folder location.
-         var directory = path ?? Util_ProjectPaths.GetReportPath();
+         var directory = path ?? PathsHelper.GetReportPath();
          Directory.CreateDirectory(directory);
 
          // File name.

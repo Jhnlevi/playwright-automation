@@ -2,11 +2,11 @@
 
 namespace Playwright.SauceDemo.Utils
 {
-   internal static class Util_ScreenshotHelper
+   internal static class ScreenshotHelper
    {
       public static async Task<string> CaptureAsync(IPage page, string name = "")
       {
-         var directory = Util_ProjectPaths.GetScreenshotPath();
+         var directory = PathsHelper.GetScreenshotPath();
          Directory.CreateDirectory(directory);
 
          var defaultName = String.IsNullOrWhiteSpace(name) ? "Screenshot" : name;

@@ -1,6 +1,6 @@
 ﻿namespace Playwright.SauceDemo.Utils
 {
-   internal static class Util_ProjectPaths
+   internal static class PathsHelper
    {
       /// <summary>
       /// Returns the appsettings path.

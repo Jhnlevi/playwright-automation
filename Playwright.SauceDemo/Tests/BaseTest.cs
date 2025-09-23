@@ -6,20 +6,20 @@ namespace Playwright.SauceDemo.Tests
 {
    internal abstract class BaseTest : PageTest
    {
-      protected Config _config;
+      protected AppSettings _config;
 
       //Initialize report.
       [OneTimeSetUp]
-      public void ReportSetup() => Util_ReportManager.CreateExtentReport("SauceDemo");
+      public void ReportSetup() => ReportManager.CreateExtentReport("SauceDemo");
 
       [SetUp]
       public virtual void Setup()
       {
          // Load app config settings.
-         _config = Util_ConfigHelper.Load<Config>("appsettings.json", "ConfigSettings");
+         _config = ConfigHelper.Load<AppSettings>("appsettings.json", "ConfigSettings");
 
          // Initialize report test.
-         Util_ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
+         ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
       }
 
       [TearDown]
@@ -32,11 +32,11 @@ namespace Playwright.SauceDemo.Tests
          var name = context.Test.MethodName;
 
          // Log results in report.
-         await Util_ResultHelper.LogResultsAsync(Page, status, message, trace!, name!);
+         await ResultHelper.LogResultsAsync(Page, status, message, trace!, name!);
       }
 
       // Close report.
       [OneTimeTearDown]
-      public void ReportClose() => Util_ReportManager.QuitExtentReport();
+      public void ReportClose() => ReportManager.QuitExtentReport();
    }
 }
