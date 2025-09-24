@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Playwright.SauceDemo.Constants.Checkout
 {
-   internal class CheckoutPageOneConstants
+   internal class CheckoutTwoPageConstants
    {
    }
 }
