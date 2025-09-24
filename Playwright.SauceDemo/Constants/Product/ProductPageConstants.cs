@@ -11,6 +11,6 @@
       public const string PRODUCT_ITEM_LABEL = "product-item-label";
       public const string PRODUCT_ITEM_IMG = "product-item-image";
       public const string PRODUCT_PRICEBAR = "product-pricebar";
-      public const string PRODUCT_ITEM_CARD = "product-item-card";
+      public const string PRODUCT_ITEM = "product-item-card";
    }
 }
