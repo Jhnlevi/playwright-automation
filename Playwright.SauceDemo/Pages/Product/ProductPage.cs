@@ -1,48 +1,60 @@
 ﻿using Microsoft.Playwright;
 using Playwright.SauceDemo.Constants.Product;
+using Playwright.SauceDemo.Pages.Components;
 
 namespace Playwright.SauceDemo.Pages.Product
 {
    internal class ProductPage
    {
       private readonly IPage _page;
-      private readonly Dictionary<string, ILocator> _elements;
+      private readonly Dictionary<string, ILocator> _productElements;
+      public HeaderComponent _header { get; }
+      public FooterComponent _footer { get; }
+      public MenuComponent _menu { get; }
 
       // Constructor
       public ProductPage(IPage page)
       {
          _page = page;
-         _elements = new Dictionary<string, ILocator>
+         _header = new HeaderComponent(page);
+         _footer = new FooterComponent(page);
+         _menu = new MenuComponent(page);
+
+         _productElements = new Dictionary<string, ILocator>
          {
             { ProductPageConstants.PRODUCT_SORT_DROPDOWN, _page.Locator(".product_sort_container") },
+            { ProductPageConstants.PRODUCT_ITEM, _page.Locator(".inventory_item") },
             { ProductPageConstants.PRODUCT_ITEM_LABEL, _page.Locator(".inventory_item_label") },
-            { ProductPageConstants.PRODUCT_ITEM_CARD, _page.Locator(".inventory_item") },
             { ProductPageConstants.PRODUCT_ITEM_NAME, _page.Locator(".inventory_item_name")},
             { ProductPageConstants.PRODUCT_ITEM_DESCRIPTION, _page.Locator(".inventory_item_desc")},
          };
       }
 
       // Actions
-      public async Task ClickItemByName(string field, string productName)
+      public async Task ClickProductByName(string field, string productItem)
       {
-         var item = _elements[field].Filter(new() { HasText = productName });
-         await item.GetByRole(AriaRole.Link).ClickAsync();
+         var item = _productElements[field].Filter(new() { HasText = productItem });
+         await item.GetByRole(AriaRole.Link, new() { Name = productItem }).ClickAsync();
       }
 
-      public async Task ClickItemAddRemove(string field, string buttonName, string productName)
+      public async Task ClickRemoveProductFromCart(string field, string productItem)
       {
-         var item = _elements[field].Filter(new() { HasText = productName });
-         var button = item.GetByRole(AriaRole.Button, new() { Name = buttonName });
-         await button.ClickAsync();
+         var item = _productElements[field].Filter(new() { HasText = productItem });
+         await item.GetByRole(AriaRole.Button, new() { Name = "REMOVE" }).ClickAsync();
+      }
+
+      public async Task ClickAddProductToCart(string field, string productItem)
+      {
+         var item = _productElements[field].Filter(new() { HasText = productItem });
+         await item.GetByRole(AriaRole.Button, new() { Name = "ADD TO CART" }).ClickAsync();
       }
 
       public async Task<string> GetItemName(string field, string productName)
       {
-         var item = _elements[field].Filter(new() { HasText = productName });
-
+         var item = _productElements[field].Filter(new() { HasText = productName });
          return await item.InnerTextAsync();
       }
 
-      public ILocator IsElementDisplayed(string field) => _elements[field];
+      public ILocator IsElementDisplayed(string field) => _productElements[field];
    }
 }
