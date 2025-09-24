@@ -6,13 +6,13 @@ namespace Playwright.SauceDemo.Pages.Product
    internal class ProductPage
    {
       private readonly IPage _page;
-      private readonly Dictionary<string, ILocator> _elements;
+      private readonly Dictionary<string, ILocator> _productElements;
 
       // Constructor
       public ProductPage(IPage page)
       {
          _page = page;
-         _elements = new Dictionary<string, ILocator>
+         _productElements = new Dictionary<string, ILocator>
          {
             { ProductPageConstants.PRODUCT_SORT_DROPDOWN, _page.Locator(".product_sort_container") },
             { ProductPageConstants.PRODUCT_ITEM_LABEL, _page.Locator(".inventory_item_label") },
@@ -25,24 +25,24 @@ namespace Playwright.SauceDemo.Pages.Product
       // Actions
       public async Task ClickItemByName(string field, string productName)
       {
-         var item = _elements[field].Filter(new() { HasText = productName });
+         var item = _productElements[field].Filter(new() { HasText = productName });
          await item.GetByRole(AriaRole.Link).ClickAsync();
       }
 
       public async Task ClickItemAddRemove(string field, string buttonName, string productName)
       {
-         var item = _elements[field].Filter(new() { HasText = productName });
+         var item = _productElements[field].Filter(new() { HasText = productName });
          var button = item.GetByRole(AriaRole.Button, new() { Name = buttonName });
          await button.ClickAsync();
       }
 
       public async Task<string> GetItemName(string field, string productName)
       {
-         var item = _elements[field].Filter(new() { HasText = productName });
+         var item = _productElements[field].Filter(new() { HasText = productName });
 
          return await item.InnerTextAsync();
       }
 
-      public ILocator IsElementDisplayed(string field) => _elements[field];
+      public ILocator IsElementDisplayed(string field) => _productElements[field];
    }
 }

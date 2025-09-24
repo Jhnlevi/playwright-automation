@@ -6,14 +6,14 @@ namespace Playwright.SauceDemo.Pages.Login
    internal class LoginPage
    {
       private readonly IPage _page;
-      private readonly Dictionary<string, ILocator> _elements;
+      private readonly Dictionary<string, ILocator> _loginElements;
 
       // Constructor
       public LoginPage(IPage page)
       {
          _page = page;
 
-         _elements = new Dictionary<string, ILocator>
+         _loginElements = new Dictionary<string, ILocator>
             {
                 { LoginPageConstants.LOGIN_USERNAME, _page.GetByPlaceholder("Username") },
                 { LoginPageConstants.LOGIN_PASSWORD, _page.GetByPlaceholder("Password") },
@@ -25,14 +25,14 @@ namespace Playwright.SauceDemo.Pages.Login
       // Actions
       public async Task EnterTextAsync(string field, string text)
       {
-         await _elements[field].ClearAsync();
-         await _elements[field].FillAsync(text);
+         await _loginElements[field].ClearAsync();
+         await _loginElements[field].FillAsync(text);
       }
 
-      public async Task<string> GetTextAsync(string field) => await _elements[field].InnerTextAsync();
+      public async Task<string> GetTextAsync(string field) => await _loginElements[field].InnerTextAsync();
 
-      public async Task ClickElementAsync(string field) => await _elements[field].ClickAsync();
+      public async Task ClickElementAsync(string field) => await _loginElements[field].ClickAsync();
 
-      public ILocator IsElementDisplayed(string field) => _elements[field];
+      public ILocator IsElementDisplayed(string field) => _loginElements[field];
    }
 }
