@@ -1,5 +1,6 @@
 ﻿using Microsoft.Playwright;
 using Playwright.SauceDemo.Constants.Product;
+using Playwright.SauceDemo.Pages.Components;
 
 namespace Playwright.SauceDemo.Pages.Product
 {
@@ -7,11 +8,18 @@ namespace Playwright.SauceDemo.Pages.Product
    {
       private readonly IPage _page;
       private readonly Dictionary<string, ILocator> _prodDetailsElements;
+      public HeaderComponent _header { get; }
+      public FooterComponent _footer { get; }
+      public MenuComponent _menu { get; }
 
       // Constructor
       public ProductDetailsPage(IPage page)
       {
          _page = page;
+         _header = new HeaderComponent(page);
+         _footer = new FooterComponent(page);
+         _menu = new MenuComponent(page);
+
          _prodDetailsElements = new Dictionary<string, ILocator>
          {
             { ProductDetailsPageConstants.PRODUCT_DETAILS_DESC_CONTAINER, _page.Locator("div.inventory_details_desc_container") },
