@@ -27,7 +27,6 @@ jobs:
     # Run UI tests when pushing to feature branch
     - name: Run ${{ matrix.project }} - UI tests
       if: github.ref != 'refs/heads/main'
-      # run: dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj --filter Category=UI --no-build --configuration Release --logger "trx;LogFileName=${{ matrix.project }}_UI_Results.trx"
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
@@ -41,7 +40,6 @@ jobs:
     # Run E2E tests when merging to main branch
     - name: Run ${{ matrix.project }} - E2E tests
       if: github.ref == 'refs/heads/main'
-      # run: dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj --filter Category=E2E --no-build --configuration Release --logger "trx;LogFileName=${{ matrix.project }}_E2E_Results.trx"
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
@@ -58,4 +56,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.project }} - Report
-        path: ${{ matrix.project }}/Reports/
+        path: Reports/
