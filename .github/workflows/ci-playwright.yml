@@ -31,7 +31,7 @@ jobs:
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
-          ${{ matrix.project }}-tests \
+          playwright-tests-image \
           dotnet test /src/${{ matrix.project }}.csproj \
             --filter Category=UI \
             --no-build \
@@ -45,7 +45,7 @@ jobs:
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
-          ${{ matrix.project }}-tests \
+          playwright-tests-image \
           dotnet test /src/${{ matrix.project }}.csproj \
             --filter Category=E2E \
             --no-build \
