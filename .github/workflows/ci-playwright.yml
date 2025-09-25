@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Build docker image
-      run: docker build -t saucedemo-tests .
+      run: docker build -t saucedemo-tests -f ${{ matrix.project }}/Dockerfile .
 
     # Run UI tests when pushing to feature branch
     - name: Run ${{ matrix.project }} - UI tests
