@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
-    <None Remove="TestData\Product\ProductTestData_Positive.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +23,7 @@
     <Content Include="TestData\Login\LoginTestData_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\Product\ProductTestData_Positive.json">
+    <Content Include="TestData\Product\ProductTestData_Products.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

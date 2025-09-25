@@ -6,7 +6,7 @@ namespace Playwright.SauceDemo.Utils.Providers
    {
       // Constants:
       private const string moduleName = "Product";
-      private const string productsFile = "ProductTestData_Positive.json";
+      private const string productsFile = "ProductTestData_Products.json";
 
       /// <summary>
       /// Get single test case by Id or Type.
@@ -14,7 +14,7 @@ namespace Playwright.SauceDemo.Utils.Providers
       /// <returns>The test case with matching Id or Type or both.</returns>
       public static ProductTestCase? GetRecord(string fileName, string id)
       {
-         var data = JsonHelper.LoadJson<ProductTestData>(moduleName, fileName);
+         var data = JsonHelper.LoadJson<ProductTestData_Products>(moduleName, fileName);
 
          return data?.TestCases?.FirstOrDefault(tc => tc.Id == id);
       }
@@ -25,7 +25,7 @@ namespace Playwright.SauceDemo.Utils.Providers
       /// <returns>All test cases.</returns>
       public static IEnumerable<ProductTestCase> GetRecords(string fileName)
       {
-         var data = JsonHelper.LoadJson<ProductTestData>(moduleName, fileName);
+         var data = JsonHelper.LoadJson<ProductTestData_Products>(moduleName, fileName);
          return data?.TestCases ?? Enumerable.Empty<ProductTestCase>();
       }
 

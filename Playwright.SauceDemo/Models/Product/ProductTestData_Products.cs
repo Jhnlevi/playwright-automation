@@ -2,7 +2,7 @@
 
 namespace Playwright.SauceDemo.Models.Product
 {
-   internal class ProductTestData
+   internal class ProductTestData_Products
    {
       [JsonPropertyName("testCases")]
       public List<ProductTestCase>? TestCases { get; set; }
