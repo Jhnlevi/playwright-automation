@@ -22,7 +22,7 @@ jobs:
     - name: Build docker image
       run: |
         cd ${{ matrix.project }}
-        docker build -t ${{ matrix.project }}-tests .
+        docker build -t playwright-tests-image .
 
     # Run UI tests when pushing to feature branch
     - name: Run ${{ matrix.project }} - UI tests
