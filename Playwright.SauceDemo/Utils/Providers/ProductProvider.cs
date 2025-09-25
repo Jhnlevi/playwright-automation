@@ -24,7 +24,7 @@ namespace Playwright.SauceDemo.Utils.Providers
       /// Get single test case by Id or Type.
       /// </summary>
       /// <returns>The test case with matching Id or Type or both.</returns>
-      public static ProductSortersTestCase? GetSortRecord(string fileName, string id)
+      public static ProductSortTestCase? GetSortRecord(string fileName, string id)
       {
          var data = JsonHelper.LoadJson<ProductTestData_Sorters>(moduleName, fileName);
 
@@ -45,18 +45,18 @@ namespace Playwright.SauceDemo.Utils.Providers
       /// Get all test case
       /// </summary>
       /// <returns>All test cases.</returns>
-      public static IEnumerable<ProductSortersTestCase> GetSorters(string fileName)
+      public static IEnumerable<ProductSortTestCase> GetSorters(string fileName)
       {
          var data = JsonHelper.LoadJson<ProductTestData_Sorters>(moduleName, fileName);
-         return data?.TestCases ?? Enumerable.Empty<ProductSortersTestCase>();
+         return data?.TestCases ?? Enumerable.Empty<ProductSortTestCase>();
       }
 
       // Get single record.
       public static ProductTestCase? GetProductById(string id) => GetProductRecord(fileName: productsFile, id);
-      public static ProductSortersTestCase? GetSortById(string id) => GetSortRecord(fileName: sortersFile, id);
+      public static ProductSortTestCase? GetSortById(string id) => GetSortRecord(fileName: sortersFile, id);
 
       // Get multiple records.
       public static IEnumerable<ProductTestCase> GetAllProducts() => GetProducts(fileName: productsFile);
-      public static IEnumerable<ProductSortersTestCase> GetAllSorters() => GetSorters(fileName: sortersFile);
+      public static IEnumerable<ProductSortTestCase> GetAllSorters() => GetSorters(fileName: sortersFile);
    }
 }

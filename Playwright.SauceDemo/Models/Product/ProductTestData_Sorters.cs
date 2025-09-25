@@ -5,9 +5,9 @@ namespace Playwright.SauceDemo.Models.Product
    internal class ProductTestData_Sorters
    {
       [JsonPropertyName("testCases")]
-      public List<ProductSortersTestCase>? TestCases { get; set; }
+      public List<ProductSortTestCase>? TestCases { get; set; }
    }
-   internal class ProductSortersTestCase
+   internal class ProductSortTestCase
    {
       [JsonPropertyName("id")]
       public string Id { get; set; } = null!;
