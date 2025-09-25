@@ -1,8 +1,8 @@
 # Build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
-COPY *.csproj ./
-RUN dotnet restore Playwright.SauceDemo.csproj
+COPY Playwright.SauceDemo.csproj ./
+RUN dotnet restore
 COPY . ./
 RUN dotnet build Playwright.SauceDemo.csproj -c Release --no-restore
 
