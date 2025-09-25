@@ -22,19 +22,35 @@ jobs:
     - name: Build docker image
       run: |
         cd ${{ matrix.project }}
-        docker build -t saucedemo-tests .
+        docker build -t ${{ matrix.project }}-tests .
 
     # Run UI tests when pushing to feature branch
     - name: Run ${{ matrix.project }} - UI tests
       if: github.ref != 'refs/heads/main'
       # run: dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj --filter Category=UI --no-build --configuration Release --logger "trx;LogFileName=${{ matrix.project }}_UI_Results.trx"
-      run: docker run --rm -v ${{ github.workspace }}/Reports:/src/Reports saucedemo-tests dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj --filter Category=UI --no-build --configuration Release --logger "trx;LogFileName=${{ matrix.project }}_UI_Results.trx"
+      run: |
+        docker run --rm \
+          -v ${{ github.workspace }}/Reports:/src/Reports \
+          ${{ matrix.project }}-tests \
+          dotnet test /src/${{ matrix.project }}.csproj \
+            --filter Category=UI \
+            --no-build \
+            --configuration Release \
+            --logger "trx;LogFileName=${{ matrix.project }}_UI_Results.trx"
 
     # Run E2E tests when merging to main branch
     - name: Run ${{ matrix.project }} - E2E tests
       if: github.ref == 'refs/heads/main'
       # run: dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj --filter Category=E2E --no-build --configuration Release --logger "trx;LogFileName=${{ matrix.project }}_E2E_Results.trx"
-      run: docker run --rm -v ${{ github.workspace }}/Reports:/src/Reports saucedemo-tests dotnet test ${{ matrix.project }}/${{ matrix.project }}.csproj --filter Category=E2E --no-build --configuration Release --logger "trx;LogFileName=${{ matrix.project }}_E2E_Results.trx"
+      run: |
+        docker run --rm \
+          -v ${{ github.workspace }}/Reports:/src/Reports \
+          ${{ matrix.project }}-tests \
+          dotnet test /src/${{ matrix.project }}.csproj \
+            --filter Category=E2E \
+            --no-build \
+            --configuration Release \
+            --logger "trx;LogFileName=${{ matrix.project }}_E2E_Results.trx"
 
     # Upload test results for each project
     - name: Upload ${{ matrix.project }} test results
