@@ -55,6 +55,8 @@ namespace Playwright.SauceDemo.Pages.Product
          return await item.InnerTextAsync();
       }
 
+      public async Task SelectDropdownByValue(string field, string value) => await _productElements[field].SelectOptionAsync(new SelectOptionValue { Value = value });
+
       public ILocator IsElementDisplayed(string field) => _productElements[field];
    }
 }
