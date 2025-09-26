@@ -27,7 +27,7 @@ namespace Playwright.SauceDemo.Pages.Product
             { ProductDetailsPageConstants.PRODUCT_DETAILS_DESC_DESCRIPTION, _page.Locator("div.inventory_details_desc")},
             { ProductDetailsPageConstants.PRODUCT_DETAILS_ADD_TO_CART_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "ADD TO CART" }) },
             { ProductDetailsPageConstants.PRODUCT_DETAILS_REMOVE_FROM_CART_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "REMOVE" }) },
-            { ProductDetailsPageConstants.PRODUCT_DETAILS_REMOVE_FROM_CART_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "<- Back" }) }
+            { ProductDetailsPageConstants.PRODUCT_DETAILS_BACK_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "<- Back" }) }
          };
       }
 
