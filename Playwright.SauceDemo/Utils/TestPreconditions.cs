@@ -1,5 +1,8 @@
 ﻿using Playwright.SauceDemo.Constants.Login;
+using Playwright.SauceDemo.Constants.Product;
 using Playwright.SauceDemo.Pages.Login;
+using Playwright.SauceDemo.Pages.Product;
+using Playwright.SauceDemo.Utils.Providers;
 
 namespace Playwright.SauceDemo.Utils
 {
@@ -7,11 +10,29 @@ namespace Playwright.SauceDemo.Utils
    {
       private const string LoginUsername = "standard_user";
       private const string LoginPassword = "secret_sauce";
-      public static async Task LoginAsStandardUser(LoginPage page)
+
+      /// <summary>
+      /// Precondition #1: Login as standard user
+      /// </summary>
+      public static async Task LoginAsStandardUserAsync(LoginPage page)
       {
          await page.EnterTextAsync(LoginPageConstants.LOGIN_USERNAME, LoginUsername);
          await page.EnterTextAsync(LoginPageConstants.LOGIN_PASSWORD, LoginPassword);
          await page.ClickElementAsync(LoginPageConstants.LOGIN_BUTTON);
+      }
+
+      /// <summary>
+      /// Precondition #2: Add three items to the cart
+      /// </summary>
+      public static async Task AddItemsToCartAsync(ProductPage page)
+      {
+         // Get three items
+         var items = ProductProvider.GetAllProducts().Take(3).ToList();
+
+         foreach (var item in items)
+         {
+            await page.ClickAddProductToCart(ProductPageConstants.PRODUCT_ITEM, item.ItemName);
+         }
       }
    }
 }
