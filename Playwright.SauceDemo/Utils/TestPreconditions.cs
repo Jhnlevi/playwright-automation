@@ -34,5 +34,16 @@ namespace Playwright.SauceDemo.Utils
             await page.ClickAddProductToCart(ProductPageConstants.PRODUCT_ITEM, item.ItemName);
          }
       }
+
+      /// <summary>
+      /// Precondition #3: Click item to open product details page
+      /// </summary>
+      public static async Task NavigateToProductDetails(ProductPage page)
+      {
+         var item = ProductProvider.GetAllProducts().FirstOrDefault();
+
+         if (item != null)
+            await page.ClickProductByName(ProductPageConstants.PRODUCT_ITEM, item.ItemName);
+      }
    }
 }
