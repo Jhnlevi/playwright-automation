@@ -24,7 +24,7 @@ namespace Playwright.SauceDemo.Tests.UI.Product
          ReportManager.Log(ReportInfo, "Navigating to SauceDemo Website.");
          Page.GotoAsync(_config.BaseUrl);
          ReportManager.Log(ReportInfo, "Login as standard user");
-         TestPreconditions.LoginAsStandardUser(_login).GetAwaiter().GetResult();
+         TestPreconditions.LoginAsStandardUserAsync(_login).GetAwaiter().GetResult();
       }
 
       [TestCaseSource(typeof(ProductProvider), nameof(ProductProvider.GetAllSorters))]
