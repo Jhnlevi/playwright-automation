@@ -14,15 +14,17 @@ jobs:
 
     strategy:
       matrix:
+        # Add project names here
         project: [ Playwright.SauceDemo ]
 
     steps:
     - uses: actions/checkout@v4
 
+    # Builds project docker image since Playwright does not have official image for .NET
     - name: Build docker image
       run: |
         cd ${{ matrix.project }}
-        docker build -t playwright-tests-image .
+        docker build -t pw-project-image .
 
     # Run UI tests when pushing to feature branch
     - name: Run ${{ matrix.project }} - UI tests
@@ -30,7 +32,7 @@ jobs:
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
-          playwright-tests-image \
+          pw-project-image \
           dotnet test /src/${{ matrix.project }}.csproj \
             --filter Category=UI \
             --no-build \
@@ -43,7 +45,7 @@ jobs:
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
-          playwright-tests-image \
+          pw-project-image \
           dotnet test /src/${{ matrix.project }}.csproj \
             --filter Category=E2E \
             --no-build \
@@ -51,7 +53,7 @@ jobs:
             --logger "trx;LogFileName=${{ matrix.project }}_E2E_Results.trx"
 
     # Upload test results for each project
-    - name: Upload ${{ matrix.project }} test results
+    - name: Upload ${{ matrix.project }} test report
       if: always()
       uses: actions/upload-artifact@v4
       with:

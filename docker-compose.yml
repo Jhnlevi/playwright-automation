@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  playwright-saucedemo:
+    build:
+      context: ./Playwright.SauceDemo
+      dockerfile: Dockerfile
+    image: pw-saucedemo-image:v1
+    volumes:
+      - ./Playwright.SauceDemo/Reports:/src/Reports
+    working_dir: /src
+    command: > 
+      dotnet test Playwright.SauceDemo.csproj --no-build --configuration Release
