@@ -1,14 +1,13 @@
 ﻿using System.Text.Json.Serialization;
-using Playwright.SauceDemo.Models.Login;
 
 namespace Playwright.SauceDemo.Models.Checkout
 {
    internal class CheckoutOneTestData
    {
       [JsonPropertyName("testCases")]
-      public List<CheckoutTestCase>? TestCases { get; set; }
+      public List<CheckoutOneTestCase>? TestCases { get; set; }
    }
-   internal class CheckoutTestCase
+   internal class CheckoutOneTestCase
    {
       [JsonPropertyName("id")]
       public string Id { get; set; } = null!;
@@ -20,7 +19,7 @@ namespace Playwright.SauceDemo.Models.Checkout
       public string? Type { get; set; } = null!;
 
       [JsonPropertyName("data")]
-      public LoginData Data { get; set; } = null!;
+      public CheckoutOneData Data { get; set; } = null!;
 
       [JsonPropertyName("expectedResult")]
       public ExpectedResult ExpectedResult { get; set; } = null!;
@@ -30,7 +29,7 @@ namespace Playwright.SauceDemo.Models.Checkout
          return $"{Id} : {Description}";
       }
    }
-   internal class CheckoutData
+   internal class CheckoutOneData
    {
       [JsonPropertyName("firstName")]
       public string FirstName { get; set; } = null!;
