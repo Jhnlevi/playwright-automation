@@ -44,6 +44,7 @@ namespace Playwright.SauceDemo.Tests.UI.Cart
 
       }
 
+      [Category("UI")]
       [Test]
       public async Task Cart_VerifyContinueShopping_ShouldSucceed()
       {
