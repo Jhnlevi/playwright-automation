@@ -1,6 +1,8 @@
-﻿using Playwright.SauceDemo.Constants.Components;
+﻿using Playwright.SauceDemo.Constants.Cart;
+using Playwright.SauceDemo.Constants.Components;
 using Playwright.SauceDemo.Constants.Login;
 using Playwright.SauceDemo.Constants.Product;
+using Playwright.SauceDemo.Pages.Cart;
 using Playwright.SauceDemo.Pages.Login;
 using Playwright.SauceDemo.Pages.Product;
 using Playwright.SauceDemo.Utils.Providers;
@@ -53,6 +55,11 @@ namespace Playwright.SauceDemo.Utils
       public static async Task NavigateToCart(ProductPage page)
       {
          await page._header.ClickElementAsync(HeaderComponentConstants.HEADER_CART_ICON);
+      }
+
+      public static async Task NavigateToCheckoutOne(CartPage page)
+      {
+         await page.ClickElementAsync(CartPageConstants.CART_ITEM_CHECKOUT_BUTTON);
       }
    }
 }
