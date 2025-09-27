@@ -1,10 +1,17 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_Checkout_0005",
+            "description": "Checkout step one: User can enter first name, last name, and postal code.",
+            "data": {
+                "firstName": "Standard User First Name",
+                "lastName": "Standard User Last Name",
+                "postalCode": "1111ABC"
+            },
+            "expectedResult": {
+                "success": true,
+                "message": "Data entered is valid."
+            }
+        }
+    ]
 }
