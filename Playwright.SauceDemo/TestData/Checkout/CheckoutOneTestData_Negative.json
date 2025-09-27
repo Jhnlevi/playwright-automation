@@ -1,0 +1,104 @@
+{
+    "testCases": [
+        {
+            "id": "TC_Checkout_0006",
+            "description": "Checkout step one: Error message appears when both 'Last Name' and 'Postal Code' are empty.",
+            "type": "invalid_input",
+            "data": {
+                "firstName": "Standard User First Name",
+                "lastName": "",
+                "postalCode": ""
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Checkout step one fails when provided with missing data.",
+                "fieldErrors": [
+                    {
+                        "field": "lastName",
+                        "message": "Required"
+                    },
+                    {
+                        "field": "postalCode",
+                        "message": "Required"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_Checkout_0006_1",
+            "description": "Checkout step one: Error message appears when both 'First Name' and 'Postal' are empty.",
+            "type": "invalid_input",
+            "data": {
+                "firstName": "",
+                "lastName": "Standard User Last Name",
+                "postalCode": ""
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Checkout step one fails when provided with missing data.",
+                "fieldErrors": [
+                    {
+                        "field": "firstName",
+                        "message": "Required"
+                    },
+                    {
+                        "field": "postalCode",
+                        "message": "Required"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_Checkout_0006_2",
+            "description": "Checkout step one: Error message appears when both 'First Name' and 'Last Name' are empty.",
+            "type": "invalid_input",
+            "data": {
+                "firstName": "",
+                "lastName": "",
+                "postalCode": "1111ABC"
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Checkout step one fails when provided with missing data.",
+                "fieldErrors": [
+                    {
+                        "field": "firstName",
+                        "message": "Required"
+                    },
+                    {
+                        "field": "lastName",
+                        "message": "Required"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_Checkout_0006_3",
+            "description": "Checkout step one: Error message appears all fields are empty.",
+            "type": "invalid_input",
+            "data": {
+                "firstName": "",
+                "lastName": "",
+                "postalCode": ""
+            },
+            "expectedResult": {
+                "success": false,
+                "message": "Checkout step one fails when provided with missing data.",
+                "fieldErrors": [
+                    {
+                        "field": "firstName",
+                        "message": "Required"
+                    },
+                    {
+                        "field": "lastName",
+                        "message": "Required"
+                    },
+                    {
+                        "field": "postalCode",
+                        "message": "Required"
+                    }
+                ]
+            }
+        }
+    ]
+}

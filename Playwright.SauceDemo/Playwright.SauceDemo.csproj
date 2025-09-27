@@ -11,12 +11,20 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="TestData\Checkout\CheckoutOneTestData_Negative.json" />
+    <None Remove="TestData\Checkout\CheckoutOneTestData_Positive.json" />
     <None Remove="TestData\Product\ProductTestData_Sorters.json" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Checkout\CheckoutOneTestData_Negative.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Checkout\CheckoutOneTestData_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\Login\LoginTestData_Negative.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
