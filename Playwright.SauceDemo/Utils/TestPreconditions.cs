@@ -1,4 +1,5 @@
-﻿using Playwright.SauceDemo.Constants.Login;
+﻿using Playwright.SauceDemo.Constants.Components;
+using Playwright.SauceDemo.Constants.Login;
 using Playwright.SauceDemo.Constants.Product;
 using Playwright.SauceDemo.Pages.Login;
 using Playwright.SauceDemo.Pages.Product;
@@ -44,6 +45,14 @@ namespace Playwright.SauceDemo.Utils
 
          if (item != null)
             await page.ClickProductByName(ProductPageConstants.PRODUCT_ITEM, item.ItemName);
+      }
+
+      /// <summary>
+      /// Precondition #3: Click cart icon to go to cart page
+      /// </summary>
+      public static async Task NavigateToCart(ProductPage page)
+      {
+         await page._header.ClickElementAsync(HeaderComponentConstants.HEADER_CART_ICON);
       }
    }
 }
