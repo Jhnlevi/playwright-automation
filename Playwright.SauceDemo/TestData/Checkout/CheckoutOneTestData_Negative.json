@@ -16,7 +16,7 @@
                     {
                         "field": "lastName",
                         "message": "Required"
-                    }
+                    },
                     {
                         "field": "postalCode",
                         "message": "Required"
