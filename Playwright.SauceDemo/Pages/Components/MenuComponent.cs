@@ -6,6 +6,8 @@ namespace Playwright.SauceDemo.Pages.Components
    internal class MenuComponent
    {
       private readonly IPage _page;
+
+      // Dictionary field
       private readonly Dictionary<string, ILocator> _menuElements;
 
       // Constructor

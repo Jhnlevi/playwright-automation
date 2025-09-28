@@ -7,7 +7,11 @@ namespace Playwright.SauceDemo.Pages.Cart
    internal class CartPage
    {
       private readonly IPage _page;
+
+      // Dictionary field
       private readonly Dictionary<string, ILocator> _cartElements;
+
+      // Component fields
       public HeaderComponent _header { get; }
       public FooterComponent _footer { get; }
       public MenuComponent _menu { get; }
@@ -16,6 +20,8 @@ namespace Playwright.SauceDemo.Pages.Cart
       public CartPage(IPage page)
       {
          _page = page;
+
+         // Components
          _header = new HeaderComponent(page);
          _footer = new FooterComponent(page);
          _menu = new MenuComponent(page);
