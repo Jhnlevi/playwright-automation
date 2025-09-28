@@ -13,7 +13,7 @@ using Playwright.SauceDemo.Utils.Providers;
 
 namespace Playwright.SauceDemo.Tests.E2E
 {
-   internal class E2E_SingleItemCartCheckout : BaseTest
+   internal class E2E_SingleItemCartCheckoutTests : BaseTest
    {
       private readonly ReportManager.LogLevel ReportInfo = ReportManager.LogLevel.Info;
       private LoginPage _login;
