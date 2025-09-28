@@ -6,6 +6,8 @@ namespace Playwright.SauceDemo.Pages.Components
    internal class FooterComponent
    {
       private readonly IPage _page;
+
+      // Dictionary field
       private readonly Dictionary<string, ILocator> _footerElements;
 
       // Constructor

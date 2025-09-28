@@ -6,6 +6,8 @@ namespace Playwright.SauceDemo.Pages.Components
    internal class HeaderComponent
    {
       private readonly IPage _page;
+
+      // Dictionary field
       private readonly Dictionary<string, ILocator> _headerElements;
 
       // Constructor

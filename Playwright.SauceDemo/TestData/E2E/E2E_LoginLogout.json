@@ -1,0 +1,21 @@
+{
+    "testCases": [
+        {
+            "id": "E2E_Login_Logout",
+            "description": "Login & logout flow",
+            "data": {
+                "user": {
+                    "userName": "standard_user",
+                    "password": "secret_sauce",
+                    "firstName": "Standard User First Name",
+                    "lastName": "Standard User Last Name",
+                    "postalCode": "1111ABC"
+                }
+            },
+            "expectedResult": {
+                "success": true,
+                "message": "Login successful for standard_user."
+            }
+        }
+    ]
+}

@@ -6,6 +6,8 @@ namespace Playwright.SauceDemo.Pages.Login
    internal class LoginPage
    {
       private readonly IPage _page;
+
+      // Dictionary field
       private readonly Dictionary<string, ILocator> _loginElements;
 
       // Constructor

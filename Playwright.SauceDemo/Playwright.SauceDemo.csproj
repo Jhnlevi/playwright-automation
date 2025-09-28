@@ -13,7 +13,19 @@
     <None Remove="appsettings.json" />
     <None Remove="TestData\Checkout\CheckoutOneTestData_Negative.json" />
     <None Remove="TestData\Checkout\CheckoutOneTestData_Positive.json" />
+    <None Remove="TestData\E2E\E2E_MultipleItemsCartCheckout.json" />
+    <None Remove="TestData\E2E\E2E_SingleItemCartCheckout.json" />
+    <None Remove="TestData\E2E\E2E_SortProducts.json" />
     <None Remove="TestData\Product\ProductTestData_Sorters.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="TestData\E2E\E2E_MultipleItemsCartCheckout.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\E2E\E2E_SingleItemCartCheckout.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +36,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\Checkout\CheckoutOneTestData_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\E2E\E2E_LoginLogout.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\E2E\E2E_SortProducts.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\Login\LoginTestData_Negative.json">

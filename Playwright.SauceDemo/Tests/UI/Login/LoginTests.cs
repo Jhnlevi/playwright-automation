@@ -93,8 +93,6 @@ namespace Playwright.SauceDemo.Tests.UI.Login
          await Expect(_login.IsElementDisplayed(LoginPageConstants.LOGIN_ERROR_MESSAGE)).ToBeVisibleAsync();
       }
 
-      // Added E2E tag here to avoid CI errors for now.
-      [Category("E2E")]
       [TestCaseSource(typeof(CustomDataSource), nameof(CustomDataSource.GetLockedOutUsers))]
       public async Task Login_VerifyLockedUserAccount_ShouldFail(LoginTestCase testCase)
       {
