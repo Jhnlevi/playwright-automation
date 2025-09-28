@@ -1,10 +1,31 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "E2E_SingleItemCartCheckout",
+            "description": "Add single item to cart & checkout flow",
+            "data": {
+                "user": {
+                    "userName": "standard_user",
+                    "password": "secret_sauce",
+                    "firstName": "Standard User First Name",
+                    "lastName": "Standard User Last Name",
+                    "postalCode": "1111ABC"
+                },
+                "order": {
+                    "products": [
+                        {
+                            "id": "product_0001",
+                            "itemName": "Sauce Labs Backpack",
+                            "itemDescription": "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.",
+                            "itemPrice": "29.99"
+                        }
+                    ]
+                }
+            },
+            "expectedResult": {
+                "success": true,
+                "message": "Login successful for standard_user."
+            }
+        }
+    ]
 }
