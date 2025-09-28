@@ -32,7 +32,7 @@ namespace Playwright.SauceDemo.Models.E2E
       public E2EData_User User { get; set; } = null!;
 
       [JsonPropertyName("order")]
-      public E2EData_Order? Order { get; set; } = null!;
+      public E2EData_Order? Order { get; set; }
    }
    internal class E2EData_User
    {
@@ -44,17 +44,20 @@ namespace Playwright.SauceDemo.Models.E2E
 
       // Optional fields
       [JsonPropertyName("firstName")]
-      public string? FirstName { get; set; } = null!;
+      public string? FirstName { get; set; }
 
       [JsonPropertyName("lastName")]
-      public string? LastName { get; set; } = null!;
+      public string? LastName { get; set; }
 
       [JsonPropertyName("postalCode")]
-      public string? PostalCode { get; set; } = null!;
+      public string? PostalCode { get; set; }
    }
    internal class E2EData_Order
    {
+      [JsonPropertyName("products")]
       public List<E2EData_Order_Products>? Products { get; set; }
+
+      [JsonPropertyName("sorters")]
       public List<E2EData_Order_Sorters>? Sorters { get; set; }
    }
    internal class E2EData_Order_Products
@@ -87,10 +90,10 @@ namespace Playwright.SauceDemo.Models.E2E
    internal class ExpectedResult
    {
       [JsonPropertyName("success")]
-      public bool success { get; set; }
+      public bool Success { get; set; }
 
       [JsonPropertyName("message")]
-      public string message { get; set; } = null!;
+      public string Message { get; set; } = null!;
 
       [JsonPropertyName("fieldErrors")]
       public List<FieldError>? FieldErrors { get; set; }
