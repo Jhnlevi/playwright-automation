@@ -1,10 +1,16 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "E2E_Login_Logout",
+            "description": "Login & logout flow",
+            "data": {
+                "userName": "standard_user",
+                "password": "secret_sauce"
+            },
+            "expectedResult": {
+                "success": true,
+                "message": "Login successful for standard_user."
+            }
+        }
+    ]
 }
