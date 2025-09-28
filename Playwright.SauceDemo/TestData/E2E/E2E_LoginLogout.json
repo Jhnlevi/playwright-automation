@@ -4,8 +4,13 @@
             "id": "E2E_Login_Logout",
             "description": "Login & logout flow",
             "data": {
-                "userName": "standard_user",
-                "password": "secret_sauce"
+                "user": {
+                    "userName": "standard_user",
+                    "password": "secret_sauce",
+                    "firstName": "Standard User First Name",
+                    "lastName": "Standard User Last Name",
+                    "postalCode": "1111ABC"
+                }
             },
             "expectedResult": {
                 "success": true,
