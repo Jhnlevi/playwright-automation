@@ -1,8 +1,10 @@
 ﻿using Playwright.SauceDemo.Constants.Cart;
+using Playwright.SauceDemo.Constants.Checkout;
 using Playwright.SauceDemo.Constants.Components;
 using Playwright.SauceDemo.Constants.Login;
 using Playwright.SauceDemo.Constants.Product;
 using Playwright.SauceDemo.Pages.Cart;
+using Playwright.SauceDemo.Pages.Checkout;
 using Playwright.SauceDemo.Pages.Login;
 using Playwright.SauceDemo.Pages.Product;
 using Playwright.SauceDemo.Utils.Providers;
@@ -50,16 +52,39 @@ namespace Playwright.SauceDemo.Utils
       }
 
       /// <summary>
-      /// Precondition #3: Click cart icon to go to cart page
+      /// Precondition #4: Click cart icon to go to cart page
       /// </summary>
       public static async Task NavigateToCart(ProductPage page)
       {
          await page._header.ClickElementAsync(HeaderComponentConstants.HEADER_CART_ICON);
       }
 
+      /// <summary>
+      /// Precondition #5: Click checkout button to go to checkout
+      /// </summary>
       public static async Task NavigateToCheckoutOne(CartPage page)
       {
          await page.ClickElementAsync(CartPageConstants.CART_ITEM_CHECKOUT_BUTTON);
+      }
+
+      /// <summary>
+      /// Precondition #6: Entering first name, last name, and postal code, then clicking continue button
+      /// </summary>
+      /// 
+      public static async Task ProceedToCheckoutTwo(CheckoutOnePage page)
+      {
+         await page.EnterTextAsync(CheckoutOnePageConstants.CHECKOUT_ONE_FIRSTNAME, "precondition-first-name");
+         await page.EnterTextAsync(CheckoutOnePageConstants.CHECKOUT_ONE_LASTNAME, "precondition-first-name");
+         await page.EnterTextAsync(CheckoutOnePageConstants.CHECKOUT_ONE_POSTAL, "precondition122333");
+         await page.ClickElementAsync(CheckoutOnePageConstants.CHECKOUT_ONE_CONTINUE_BUTTON);
+      }
+
+      /// <summary>
+      /// Precondition #7: Clicking 'FINISH' button in checkout step two
+      /// </summary>
+      public static async Task ProceedToCompletePage(CheckoutTwoPage page)
+      {
+         await page.ClickElementAsync(CheckoutTwoPageConstants.CHECKOUT_TWO_FINISH_BUTTON);
       }
    }
 }
