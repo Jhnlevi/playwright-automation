@@ -79,11 +79,5 @@ namespace Playwright.SauceDemo.Tests.E2E
          Assert.That(Page.Url, Does.Contain("index"));
          await Expect(loginWrapper).ToBeVisibleAsync();
       }
-
-      // Filtered test cases.
-      private static class CustomDataSource
-      {
-         public static IEnumerable<E2EData> GetData() => E2EProvider.GetLoginLogout().Select(tc => tc.Data);
-      }
    }
 }
