@@ -83,8 +83,4 @@
     <Using Include="NUnit.Framework" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Tests\E2E\" />
-  </ItemGroup>
-
 </Project>
