@@ -1,7 +1,7 @@
 ﻿<a id="top-read"></a>
 # SauceDemo Automation (Playwright .NET) 
 
-This is a **test automation framework** built with **Playwright (.NET)** for the [SauceDemo](https://www.saucedemo.com/) website.
+This is a **test automation project** built with **Playwright (.NET)** for the [SauceDemo](https://www.saucedemo.com/) website.
 
 ## About The Project
 
