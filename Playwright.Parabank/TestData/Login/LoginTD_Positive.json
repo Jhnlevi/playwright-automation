@@ -1,0 +1,19 @@
+{
+    "testCases": [
+        {
+            "id": "TC_LOGIN_0001",
+            "description": "Valid inputs for user/customer login.",
+            "type": "valid_input",
+            "data": {
+                "user": {
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                }
+            },
+            "expectedResult": {
+                "message": "Login successful.",
+                "fieldErrors": []
+            }
+        }
+    ]
+}

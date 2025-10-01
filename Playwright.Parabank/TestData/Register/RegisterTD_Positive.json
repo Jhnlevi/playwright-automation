@@ -1,0 +1,28 @@
+{
+    "testCases": [
+        {
+            "id": "TC_REG_0001",
+            "description": "Valid inputs for user/customer registration.",
+            "type": "valid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "444455555666666",
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration successful.",
+                "fieldErrors": []
+            }
+        }
+    ]
+}

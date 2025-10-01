@@ -10,6 +10,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="TestData\Login\LoginTD_Negative.json" />
+    <None Remove="TestData\Login\LoginTD_Positive.json" />
+    <None Remove="TestData\Register\RegisterTD_Negative.json" />
+    <None Remove="TestData\Register\RegisterTD_Positive.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="TestData\Login\LoginTD_Negative.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Login\LoginTD_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Register\RegisterTD_Negative.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Register\RegisterTD_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
