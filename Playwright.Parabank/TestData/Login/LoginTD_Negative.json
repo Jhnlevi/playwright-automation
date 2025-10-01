@@ -1,10 +1,84 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_LOGIN_0002",
+            "description": "Missing user name for user/customer login.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "userName": "",
+                    "password": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Login unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "error",
+                        "message": "Please enter a username and password."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_LOGIN_0003",
+            "description": "Missing password for user/customer login.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "userName": "JohnnySeed12",
+                    "password": ""
+                }
+            },
+            "expectedResult": {
+                "message": "Login unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "error",
+                        "message": "Please enter a username and password."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_LOGIN_0004",
+            "description": "Missing username and password for user/customer login.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "userName": "",
+                    "password": ""
+                }
+            },
+            "expectedResult": {
+                "message": "Login unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "error",
+                        "message": "Please enter a username and password."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_LOGIN_0005",
+            "description": "Invalid username and password for user/customer login.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "userName": "INVALID_USERNAME",
+                    "password": "INVALID_PASSWORD"
+                }
+            },
+            "expectedResult": {
+                "message": "Login unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "error",
+                        "message": "The username and password could not be verified."
+                    }
+                ]
+            }
+        }
+    ]
 }
