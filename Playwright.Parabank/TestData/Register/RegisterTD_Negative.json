@@ -1,10 +1,388 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_REG_0002",
+            "description": "Missing first name for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "444455555666666",
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.firstName",
+                        "message": "First name is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0003",
+            "description": "Missing last name for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "444455555666666",
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.lastName",
+                        "message": "Last name is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0004",
+            "description": "Missing address for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "444455555666666",
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.address.street",
+                        "message": "Address is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0005",
+            "description": "Missing city for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "444455555666666",
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.address.city",
+                        "message": "City is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0006",
+            "description": "Missing state for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "444455555666666",
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.address.state",
+                        "message": "State is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0007",
+            "description": "Missing zip code for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "444455555666666",
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.address.zipCode",
+                        "message": "Zip Code is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0008",
+            "description": "Missing social security number for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "",
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.ssn",
+                        "message": "Social Security Number is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0009",
+            "description": "Missing username for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "",
+                    "userName": "",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.username",
+                        "message": "Username is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0010",
+            "description": "Missing password for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "",
+                    "userName": "JohnnySeed12",
+                    "password": "",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.password",
+                        "message": "Password is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0011",
+            "description": "Missing password confirm for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "",
+                    "userName": "JohnnySeed12",
+                    "password": "JohnnyPassword01",
+                    "confirmPassword": "JohnnyPassword01"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "repeatedPassword",
+                        "message": "Password confirmation is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0012",
+            "description": "Missing all field inputs for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "",
+                    "lastName": "",
+                    "address": "",
+                    "city": "",
+                    "state": "",
+                    "zipCode": "",
+                    "mobileNumber": "",
+                    "ssn": "",
+                    "userName": "",
+                    "password": "",
+                    "confirmPassword": ""
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.firstName",
+                        "message": "First name is required."
+                    },
+                    {
+                        "field": "customer.lastName",
+                        "message": "Last name is required."
+                    },
+                    {
+                        "field": "customer.address.street",
+                        "message": "Address is required."
+                    },
+                    {
+                        "field": "customer.address.city",
+                        "message": "City is required."
+                    },
+                    {
+                        "field": "customer.address.state",
+                        "message": "State is required."
+                    },
+                    {
+                        "field": "customer.address.zipCode",
+                        "message": "Zip Code is required."
+                    },
+                    {
+                        "field": "customer.ssn",
+                        "message": "Social Security Number is required."
+                    },
+                    {
+                        "field": "customer.username",
+                        "message": "Username is required."
+                    },
+                    {
+                        "field": "customer.password",
+                        "message": "Password is required."
+                    },
+                    {
+                        "field": "repeatedPassword",
+                        "message": "Password confirmation is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_REG_0013",
+            "description": "Mismatched passwords for user/customer registration.",
+            "type": "invalid_input",
+            "data": {
+                "user": {
+                    "firstName": "Johnny",
+                    "lastName": "Seed",
+                    "address": "29th street",
+                    "city": "Los Angeles",
+                    "state": "California, USA",
+                    "zipCode": "122333",
+                    "mobileNumber": "111 222 3333",
+                    "ssn": "444455555666666",
+                    "userName": "JohnnySeed12",
+                    "password": "1223334444",
+                    "confirmPassword": "abbcccdddd"
+                }
+            },
+            "expectedResult": {
+                "message": "Registration unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "repeatedPassword",
+                        "message": "Passwords did not match."
+                    }
+                ]
+            }
+        }
+    ]
 }
