@@ -27,7 +27,7 @@ namespace Playwright.Parabank.Models.Login
 
       public override string ToString()
       {
-         return $"{Id}";
+         return $"{Id} : {Description}";
       }
    }
 
