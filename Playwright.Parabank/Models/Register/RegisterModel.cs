@@ -22,12 +22,12 @@ namespace Playwright.Parabank.Models.Register
       [JsonPropertyName("data")]
       public Data Data { get; set; } = null!;
 
-      [JsonPropertyName("ExpectedResult")]
+      [JsonPropertyName("expectedResult")]
       public Expectedresult ExpectedResult { get; set; } = null!;
 
       public override string ToString()
       {
-         return $"{Id}";
+         return $"{Id} : {Description}";
       }
    }
 
@@ -42,7 +42,7 @@ namespace Playwright.Parabank.Models.Register
       [JsonPropertyName("firstName")]
       public string FirstName { get; set; } = null!;
 
-      [JsonPropertyName("LastName")]
+      [JsonPropertyName("lastName")]
       public string LastName { get; set; } = null!;
 
       [JsonPropertyName("address")]
@@ -79,10 +79,10 @@ namespace Playwright.Parabank.Models.Register
       public string Message { get; set; } = null!;
 
       [JsonPropertyName("fieldErrors")]
-      public List<FieldErrors>? FieldErrors { get; set; }
+      public List<Fielderrors>? FieldErrors { get; set; }
    }
 
-   public class FieldErrors
+   public class Fielderrors
    {
       [JsonPropertyName("field")]
       public string Field { get; set; } = null!;
