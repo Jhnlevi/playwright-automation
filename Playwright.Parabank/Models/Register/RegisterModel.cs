@@ -24,6 +24,11 @@ namespace Playwright.Parabank.Models.Register
 
       [JsonPropertyName("ExpectedResult")]
       public Expectedresult ExpectedResult { get; set; } = null!;
+
+      public override string ToString()
+      {
+         return $"{Id}";
+      }
    }
 
    public class Data
