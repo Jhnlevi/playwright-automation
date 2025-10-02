@@ -4,7 +4,7 @@ namespace Playwright.Parabank.Utils.Providers
 {
    internal static class RegisterProvider
    {
-      private const string moduleName = "Registers";
+      private const string moduleName = "Register";
       private const string positive = "RegisterTD_Positive.json";
       private const string negative = "RegisterTD_Negative.json";
 
