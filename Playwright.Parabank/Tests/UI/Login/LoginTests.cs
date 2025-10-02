@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Playwright.Parabank.Tests.Register
+namespace Playwright.Parabank.Tests.UI.Login
 {
-   internal class RegisterTests
+   internal class LoginTests
    {
    }
 }
