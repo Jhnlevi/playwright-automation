@@ -23,6 +23,7 @@ namespace Playwright.Parabank.Tests.UI.Login
       }
 
       [Category("UI")]
+      [Order(2)]
       [TestCaseSource(typeof(LoginProvider), nameof(LoginProvider.GetPositiveCases))]
       public async Task Login_WtihValidCredentials_ShouldSucceed(LoginTestCase testCase)
       {
@@ -30,7 +31,7 @@ namespace Playwright.Parabank.Tests.UI.Login
          Assert.That(data, Is.Not.Null, "Data should not be null.");
 
          var user = data.User;
-         Assert.That(data, Is.Not.Null, "User should not be null.");
+         Assert.That(user, Is.Not.Null, "User should not be null.");
 
          ReportManager.Log(_info, "Entering username");
          await _login.EnterTextAsync(LoginPageConstants.LOGIN_USERNAME_FIELD, user.UserName);
@@ -53,7 +54,7 @@ namespace Playwright.Parabank.Tests.UI.Login
          Assert.That(data, Is.Not.Null, "Data should not be null.");
 
          var user = data.User;
-         Assert.That(data, Is.Not.Null, "User should not be null.");
+         Assert.That(user, Is.Not.Null, "User should not be null.");
 
          ReportManager.Log(_info, "Entering username");
          await _login.EnterTextAsync(LoginPageConstants.LOGIN_USERNAME_FIELD, user.UserName);
@@ -69,7 +70,7 @@ namespace Playwright.Parabank.Tests.UI.Login
          foreach (var err in fieldErrors)
          {
 
-            var error = await Page.Locator($".{err.Field}").InnerHTMLAsync();
+            var error = await Page.Locator($".{err.Field}").InnerTextAsync();
             ReportManager.Log(_info, $"Error message: {error}");
             Assert.That(error, Is.EqualTo($"{err.Message}"));
          }
