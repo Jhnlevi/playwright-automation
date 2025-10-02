@@ -4,7 +4,7 @@ using Playwright.Parabank.Utils;
 
 namespace Playwright.Parabank.Tests
 {
-   internal class BaseTest : PageTest
+   internal abstract class BaseTest : PageTest
    {
       protected AppSettings _config;
 
