@@ -1,0 +1,36 @@
+# .NET build
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+*.cache
+*.log
+.vs/
+
+# IDE settings
+.idea/
+.vscode/
+
+# Test results
+TestResult*/
+*.trx
+*.coverage
+*.coveragexml
+TestResults/
+Reports/
+test-results/
+playwright-report/
+
+# Playwright downloaded browsers
+playwright/.local-browsers/
+bin/**/playwright/.local-browsers/
+bin/**/playwright/.cache/
+
+# Git files (optional)
+.git/
+.gitignore
+
+# Docker files (optional)
+Dockerfile
+docker-compose*
