@@ -15,17 +15,17 @@ namespace Playwright.Parabank.Pages.Register
 
          _registerElements = new Dictionary<string, ILocator>
          {
-            { RegisterPageConstants.REGISTER_FIRST_NAME_FIELD, _page.Locator("#customer.firstName") },
-            { RegisterPageConstants.REGISTER_LAST_NAME_FIELD, _page.Locator("#customer.lastName") },
-            { RegisterPageConstants.REGISTER_ADDRESS_FIELD, _page.Locator("#customer.address.street") },
-            { RegisterPageConstants.REGISTER_CITY_FIELD, _page.Locator("#customer.address.city") },
-            { RegisterPageConstants.REGISTER_STATE_FIELD, _page.Locator("#customer.address.state") },
-            { RegisterPageConstants.REGISTER_ZIP_CODE_FIELD, _page.Locator("#customer.address.zipCode") },
-            { RegisterPageConstants.REGISTER_MOBILE_NUMBER_FIELD, _page.Locator("#customer.phoneNumber") },
-            { RegisterPageConstants.REGISTER_SSN_FIELD, _page.Locator("#customer.ssn") },
-            { RegisterPageConstants.REGISTER_USERNAME_FIELD, _page.Locator("#customer.username") },
-            { RegisterPageConstants.REGISTER_PASSWORD_FIELD, _page.Locator("#customer.password") },
-            { RegisterPageConstants.REGISTER_CONFIRM_PASSWORD_FIELD, _page.Locator("#repeatedPassword") },
+            { RegisterPageConstants.REGISTER_FIRST_NAME_FIELD, _page.Locator("[name='customer.firstName']") },
+            { RegisterPageConstants.REGISTER_LAST_NAME_FIELD, _page.Locator("[name='customer.lastName']") },
+            { RegisterPageConstants.REGISTER_ADDRESS_FIELD, _page.Locator("[name='customer.address.street']") },
+            { RegisterPageConstants.REGISTER_CITY_FIELD, _page.Locator("[name='customer.address.city']") },
+            { RegisterPageConstants.REGISTER_STATE_FIELD, _page.Locator("[name='customer.address.state']") },
+            { RegisterPageConstants.REGISTER_ZIP_CODE_FIELD, _page.Locator("[name='customer.address.zipCode']") },
+            { RegisterPageConstants.REGISTER_MOBILE_NUMBER_FIELD, _page.Locator("[name='customer.phoneNumber']") },
+            { RegisterPageConstants.REGISTER_SSN_FIELD, _page.Locator("[name='customer.ssn']") },
+            { RegisterPageConstants.REGISTER_USERNAME_FIELD, _page.Locator("[name='customer.username']") },
+            { RegisterPageConstants.REGISTER_PASSWORD_FIELD, _page.Locator("[name='customer.password']") },
+            { RegisterPageConstants.REGISTER_CONFIRM_PASSWORD_FIELD, _page.Locator("[name='repeatedPassword']") },
             { RegisterPageConstants.REGISTER_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "Register" }) },
             { RegisterPageConstants.REGISTER_LEFT_PANEL, _page.Locator("#leftPanel") },
             { RegisterPageConstants.REGISTER_RIGHT_PANEL, _page.Locator("#rightPanel") }

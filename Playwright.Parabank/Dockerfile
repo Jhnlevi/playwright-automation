@@ -6,19 +6,19 @@ WORKDIR /src
 RUN mkdir -p /src/Reports
 
 # Copy .csproj file and run dotnet restore
-COPY Playwright.SauceDemo.csproj ./
+COPY Playwright.Parabank.csproj ./
 RUN dotnet restore
 
 # After copying .csproj, copy all files and run dotnet build on release
 COPY . ./
-RUN dotnet build Playwright.SauceDemo.csproj -c Release --no-restore
+RUN dotnet build Playwright.Parabank.csproj -c Release --no-restore
 
-# Runtime stage using Playwright's official docker image
+# Runtime stage
 FROM mcr.microsoft.com/playwright/dotnet:v1.55.0-jammy AS runtime
 WORKDIR /src
 
-# Copt all files from build stage
+# Copy only build outputs
 COPY --from=build /src ./
 
 # Run dotnet test
-CMD ["dotnet", "test", "Playwright.SauceDemo.csproj", "--configuration", "Release"]
+CMD ["dotnet", "test", "Playwright.Parabank.csproj", "--configuration", "Release"]

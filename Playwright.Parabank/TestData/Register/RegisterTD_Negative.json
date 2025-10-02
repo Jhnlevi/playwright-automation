@@ -216,7 +216,7 @@
                     "state": "California, USA",
                     "zipCode": "122333",
                     "mobileNumber": "111 222 3333",
-                    "ssn": "",
+                    "ssn": "444455555666666",
                     "userName": "",
                     "password": "JohnnyPassword01",
                     "confirmPassword": "JohnnyPassword01"
@@ -245,7 +245,7 @@
                     "state": "California, USA",
                     "zipCode": "122333",
                     "mobileNumber": "111 222 3333",
-                    "ssn": "",
+                    "ssn": "444455555666666",
                     "userName": "JohnnySeed12",
                     "password": "",
                     "confirmPassword": "JohnnyPassword01"
@@ -274,10 +274,10 @@
                     "state": "California, USA",
                     "zipCode": "122333",
                     "mobileNumber": "111 222 3333",
-                    "ssn": "",
+                    "ssn": "444455555666666",
                     "userName": "JohnnySeed12",
                     "password": "JohnnyPassword01",
-                    "confirmPassword": "JohnnyPassword01"
+                    "confirmPassword": ""
                 }
             },
             "expectedResult": {

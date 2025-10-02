@@ -1,5 +1,6 @@
 services:
-  playwright-saucedemo:
+  # SauceDemo project
+  saucedemo:
     build:
       context: ./Playwright.SauceDemo
       dockerfile: Dockerfile
@@ -9,3 +10,15 @@ services:
     working_dir: /src
     command: > 
       dotnet test Playwright.SauceDemo.csproj --no-build --configuration Release
+
+  # Parabank project
+  parabank:
+    build:
+      context: ./Playwright.Parabank
+      dockerfile: Dockerfile
+    image: pw-parabank-image:v1
+    volumes:
+      - ./Playwright.Parabank/Reports:/src/Reports
+    working_dir: /src
+    command: > 
+      dotnet test Playwright.Parabank.csproj --no-build --configuration Release

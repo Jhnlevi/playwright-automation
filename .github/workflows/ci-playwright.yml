@@ -15,7 +15,8 @@ jobs:
     strategy:
       matrix:
         # Add project names here
-        project: [ Playwright.SauceDemo ]
+        project: [ Playwright.SauceDemo, Playwright.Parabank ]
+        browser: [ chromium, firefox, webkit ]
 
     steps:
     - uses: actions/checkout@v4
@@ -32,12 +33,13 @@ jobs:
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
+          -e BROWSER=${{ matrix.browser }} \
           pw-project-image \
           dotnet test /src/${{ matrix.project }}.csproj \
             --filter Category=UI \
             --no-build \
             --configuration Release \
-            --logger "trx;LogFileName=${{ matrix.project }}_UI_Results.trx"
+            --logger "trx;LogFileName=${{ matrix.project }}_${{ matrix.browser }}_UI_Results.trx"
 
     # Run E2E tests when merging to main branch
     - name: Run ${{ matrix.project }} - E2E tests
@@ -45,17 +47,18 @@ jobs:
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
+          -e BROWSER=${{ matrix.browser }} \
           pw-project-image \
           dotnet test /src/${{ matrix.project }}.csproj \
             --filter Category=E2E \
             --no-build \
             --configuration Release \
-            --logger "trx;LogFileName=${{ matrix.project }}_E2E_Results.trx"
+            --logger "trx;LogFileName=${{ matrix.project }}_${{ matrix.browser }}_E2E_Results.trx"
 
     # Upload test results for each project
     - name: Upload ${{ matrix.project }} test report
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.project }} - Report
+        name: ${{ matrix.project }}_${{ matrix.browser }}_Report
         path: Reports/
