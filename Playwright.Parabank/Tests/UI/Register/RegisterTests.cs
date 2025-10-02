@@ -23,7 +23,6 @@ namespace Playwright.Parabank.Tests.UI.Register
       }
 
       [Category("UI")]
-      [Order(1)]
       [TestCaseSource(typeof(RegisterProvider), nameof(RegisterProvider.GetPositiveCases))]
       public async Task Register_WithValidInputs_ShouldSucceed(RegisterTestCase testCase)
       {
@@ -66,6 +65,8 @@ namespace Playwright.Parabank.Tests.UI.Register
          await Expect(welcomeMessage).ToBeVisibleAsync();
       }
 
+      // Temporary tag for CI
+      [Category("E2E")]
       [TestCaseSource(typeof(RegisterProvider), nameof(RegisterProvider.GetNegativeCases))]
       public async Task Register_WithInvalidInputs_ShouldSucceed(RegisterTestCase testCase)
       {

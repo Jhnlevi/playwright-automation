@@ -23,7 +23,6 @@ namespace Playwright.Parabank.Tests.UI.Login
       }
 
       [Category("UI")]
-      [Order(2)]
       [TestCaseSource(typeof(LoginProvider), nameof(LoginProvider.GetPositiveCases))]
       public async Task Login_WtihValidCredentials_ShouldSucceed(LoginTestCase testCase)
       {
