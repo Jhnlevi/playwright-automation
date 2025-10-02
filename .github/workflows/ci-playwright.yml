@@ -15,7 +15,8 @@ jobs:
     strategy:
       matrix:
         # Add project names here
-        project: [ Playwright.SauceDemo ]
+        project: [ Playwright.SauceDemo, Playwright.Parabank ]
+        browser: [ chromium, firefox, webkit ]
 
     steps:
     - uses: actions/checkout@v4
@@ -32,6 +33,7 @@ jobs:
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
+          -e BROWSER=${{ matrix.browser }} \
           pw-project-image \
           dotnet test /src/${{ matrix.project }}.csproj \
             --filter Category=UI \
@@ -45,6 +47,7 @@ jobs:
       run: |
         docker run --rm \
           -v ${{ github.workspace }}/Reports:/src/Reports \
+          -e BROWSER=${{ matrix.browser }} \
           pw-project-image \
           dotnet test /src/${{ matrix.project }}.csproj \
             --filter Category=E2E \
