@@ -14,7 +14,7 @@ namespace Playwright.Parabank.Tests
       [SetUp]
       public virtual void Setup()
       {
-         _config = ConfigHelper.Load<AppSettings>("appsettings.json", "ConfigSettings");
+         _config = ConfigHelper.Load<AppSettings>("appsettings.json");
 
          ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
       }
