@@ -56,4 +56,8 @@
     <Using Include="NUnit.Framework" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Constants\Public\" />
+  </ItemGroup>
+
 </Project>
