@@ -18,8 +18,10 @@ namespace Playwright.Parabank.Tests.UI.Public
 
          _login = new LoginPage(Page);
 
+         var URL = _config.Environments.Qa.BaseUrl;
+
          ReportManager.Log(_info, "Navigating to Parabank Website.");
-         Page.GotoAsync(_config.BaseUrl);
+         Page.GotoAsync(URL + LoginPageConstants.URL_PATH);
       }
 
       [Category("UI")]
