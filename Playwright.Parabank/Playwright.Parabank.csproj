@@ -58,7 +58,6 @@
 
   <ItemGroup>
     <Folder Include="Pages\Protected\" />
-    <Folder Include="Pages\Public\" />
   </ItemGroup>
 
 </Project>

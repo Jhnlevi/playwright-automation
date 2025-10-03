@@ -1,7 +1,7 @@
 ﻿using Microsoft.Playwright;
 using Playwright.Parabank.Constants.Public;
 
-namespace Playwright.Parabank.Pages.Register
+namespace Playwright.Parabank.Pages.Public
 {
    internal class RegisterPage
    {
