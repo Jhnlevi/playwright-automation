@@ -1,5 +1,7 @@
-﻿using Playwright.Parabank.Constants.Register;
+﻿using Playwright.Parabank.Constants.Login;
+using Playwright.Parabank.Constants.Register;
 using Playwright.Parabank.Models.Register;
+using Playwright.Parabank.Pages.Login;
 using Playwright.Parabank.Pages.Register;
 using Playwright.Parabank.Utils;
 using Playwright.Parabank.Utils.Providers;
@@ -10,6 +12,7 @@ namespace Playwright.Parabank.Tests.UI.Register
    {
       private readonly ReportManager.LogLevel _info = ReportManager.LogLevel.Info;
       private RegisterPage _register;
+      private LoginPage _login;
 
       [SetUp]
       public override void Setup()
@@ -17,9 +20,12 @@ namespace Playwright.Parabank.Tests.UI.Register
          base.Setup();
 
          _register = new RegisterPage(Page);
+         _login = new LoginPage(Page);
 
          ReportManager.Log(_info, "Navigating to Parabank Website.");
-         Page.GotoAsync("https://parabank.parasoft.com/parabank/register.htm");
+         Page.GotoAsync(_config.BaseUrl);
+         ReportManager.Log(_info, "Clicking 'REGISTER' button.");
+         _login.ClickElementAsync(LoginPageConstants.LOGIN_REGISTER_BUTTON).GetAwaiter().GetResult();
       }
 
       [Category("UI")]
