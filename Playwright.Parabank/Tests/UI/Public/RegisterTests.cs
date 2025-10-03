@@ -20,10 +20,10 @@ namespace Playwright.Parabank.Tests.UI.Public
          _register = new RegisterPage(Page);
          _login = new LoginPage(Page);
 
+         var URL = _config.Environments.Qa.BaseUrl;
+
          ReportManager.Log(_info, "Navigating to Parabank Website.");
-         Page.GotoAsync(_config.BaseUrl);
-         ReportManager.Log(_info, "Clicking 'REGISTER' button.");
-         _login.ClickElementAsync(LoginPageConstants.LOGIN_REGISTER_BUTTON).GetAwaiter().GetResult();
+         Page.GotoAsync(URL + RegisterPageConstants.URL_PATH);
       }
 
       [Category("UI")]
