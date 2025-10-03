@@ -36,6 +36,10 @@ namespace Playwright.SauceDemo.Utils
          _extent.AddSystemInfo("OS", Environment.OSVersion.ToString());
          _extent.AddSystemInfo("MachineName", Environment.MachineName);
          _extent.AddSystemInfo("Framework", $".NET {Environment.Version}");
+
+         // Get current browser.
+         var browser = Environment.GetEnvironmentVariable("BROWSER") ?? "chromium";
+         _extent.AddSystemInfo("Browser", browser);
       }
 
       /// <summary>

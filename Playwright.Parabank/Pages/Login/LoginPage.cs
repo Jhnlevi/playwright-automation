@@ -19,7 +19,9 @@ namespace Playwright.Parabank.Pages.Login
             { LoginPageConstants.LOGIN_PASSWORD_FIELD, _page.Locator("input[name=\"password\"]") },
             { LoginPageConstants.LOGIN_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "Log In" }) },
             { LoginPageConstants.LOGIN_LEFT_PANEL, _page.Locator("#loginPanel") },
-            { LoginPageConstants.LOGIN_RIGHT_PANEL, _page.Locator("#rightPanel") }
+            { LoginPageConstants.LOGIN_RIGHT_PANEL, _page.Locator("#rightPanel") },
+            { LoginPageConstants.LOGIN_FORGOT_LOGIN_INFO, _page.GetByRole(AriaRole.Link, new() { Name = "Forgot login info?" }) },
+            { LoginPageConstants.LOGIN_REGISTER_BUTTON, _page.GetByRole(AriaRole.Link, new() { Name = "Register" }) }
          };
       }
 
