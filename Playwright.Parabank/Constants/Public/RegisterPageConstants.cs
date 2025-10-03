@@ -1,4 +1,4 @@
-﻿namespace Playwright.Parabank.Constants.Register
+﻿namespace Playwright.Parabank.Constants.Public
 {
    internal class RegisterPageConstants
    {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.Playwright;
-using Playwright.Parabank.Constants.Register;
+using Playwright.Parabank.Constants.Public;
 
 namespace Playwright.Parabank.Pages.Register
 {

@@ -1,4 +1,4 @@
-﻿namespace Playwright.Parabank.Constants.Login
+﻿namespace Playwright.Parabank.Constants.Public
 {
    internal class LoginPageConstants
    {

@@ -1,5 +1,4 @@
-﻿using Playwright.Parabank.Constants.Login;
-using Playwright.Parabank.Constants.Register;
+﻿using Playwright.Parabank.Constants.Public;
 using Playwright.Parabank.Models.Register;
 using Playwright.Parabank.Pages.Login;
 using Playwright.Parabank.Pages.Register;

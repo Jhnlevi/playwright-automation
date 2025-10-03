@@ -1,4 +1,4 @@
-﻿namespace Playwright.Parabank.Constants.Lookup
+﻿namespace Playwright.Parabank.Constants.Public
 {
    internal class LookupPageConstants
    {
