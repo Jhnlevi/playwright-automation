@@ -4,7 +4,7 @@ using Playwright.Parabank.Pages.Public;
 using Playwright.Parabank.Utils;
 using Playwright.Parabank.Utils.Providers;
 
-namespace Playwright.Parabank.Tests.UI.Login
+namespace Playwright.Parabank.Tests.UI.Public
 {
    internal class LoginTests : BaseTest
    {

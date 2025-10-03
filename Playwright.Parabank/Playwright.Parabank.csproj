@@ -59,7 +59,6 @@
   <ItemGroup>
     <Folder Include="Pages\Protected\" />
     <Folder Include="Tests\UI\Protected\" />
-    <Folder Include="Tests\UI\Public\" />
   </ItemGroup>
 
 </Project>
