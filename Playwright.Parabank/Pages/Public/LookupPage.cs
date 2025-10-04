@@ -1,7 +1,7 @@
 ﻿using Microsoft.Playwright;
-using Playwright.Parabank.Constants.Lookup;
+using Playwright.Parabank.Constants.Public;
 
-namespace Playwright.Parabank.Pages.Lookup
+namespace Playwright.Parabank.Pages.Public
 {
    internal class LookupPage
    {

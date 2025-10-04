@@ -1,7 +1,8 @@
-﻿namespace Playwright.Parabank.Constants.Login
+﻿namespace Playwright.Parabank.Constants.Public
 {
    internal class LoginPageConstants
    {
+      public const string URL_PATH = "index.htm";
       public const string LOGIN_USERNAME_FIELD = "login-username-field";
       public const string LOGIN_PASSWORD_FIELD = "login-password-field";
       public const string LOGIN_BUTTON = "login-button";

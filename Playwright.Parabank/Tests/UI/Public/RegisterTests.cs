@@ -1,12 +1,10 @@
-﻿using Playwright.Parabank.Constants.Login;
-using Playwright.Parabank.Constants.Register;
+﻿using Playwright.Parabank.Constants.Public;
 using Playwright.Parabank.Models.Register;
-using Playwright.Parabank.Pages.Login;
-using Playwright.Parabank.Pages.Register;
+using Playwright.Parabank.Pages.Public;
 using Playwright.Parabank.Utils;
 using Playwright.Parabank.Utils.Providers;
 
-namespace Playwright.Parabank.Tests.UI.Register
+namespace Playwright.Parabank.Tests.UI.Public
 {
    internal class RegisterTests : BaseTest
    {
@@ -22,10 +20,10 @@ namespace Playwright.Parabank.Tests.UI.Register
          _register = new RegisterPage(Page);
          _login = new LoginPage(Page);
 
+         var URL = _config.Environments.Qa.BaseUrl;
+
          ReportManager.Log(_info, "Navigating to Parabank Website.");
-         Page.GotoAsync(_config.BaseUrl);
-         ReportManager.Log(_info, "Clicking 'REGISTER' button.");
-         _login.ClickElementAsync(LoginPageConstants.LOGIN_REGISTER_BUTTON).GetAwaiter().GetResult();
+         Page.GotoAsync(URL + RegisterPageConstants.URL_PATH);
       }
 
       [Category("UI")]

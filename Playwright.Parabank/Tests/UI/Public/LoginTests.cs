@@ -1,10 +1,10 @@
-﻿using Playwright.Parabank.Constants.Login;
+﻿using Playwright.Parabank.Constants.Public;
 using Playwright.Parabank.Models.Login;
-using Playwright.Parabank.Pages.Login;
+using Playwright.Parabank.Pages.Public;
 using Playwright.Parabank.Utils;
 using Playwright.Parabank.Utils.Providers;
 
-namespace Playwright.Parabank.Tests.UI.Login
+namespace Playwright.Parabank.Tests.UI.Public
 {
    internal class LoginTests : BaseTest
    {
@@ -18,8 +18,10 @@ namespace Playwright.Parabank.Tests.UI.Login
 
          _login = new LoginPage(Page);
 
+         var URL = _config.Environments.Qa.BaseUrl;
+
          ReportManager.Log(_info, "Navigating to Parabank Website.");
-         Page.GotoAsync(_config.BaseUrl);
+         Page.GotoAsync(URL + LoginPageConstants.URL_PATH);
       }
 
       [Category("UI")]
