@@ -2,6 +2,7 @@
 {
    internal class UpdateContantInfoPageConstants
    {
+      public const string URL_PATH = "updateprofile.htm";
       public const string UCI_FORM = "uci-form";
       public const string UCI_RESULT = "uci-result";
       public const string UCI_ERROR = "uci-error";

@@ -2,6 +2,7 @@
 {
    internal class RegisterPageConstants
    {
+      public const string URL_PATH = "register.htm";
       public const string REGISTER_FIRST_NAME_FIELD = "register-first-name-field";
       public const string REGISTER_LAST_NAME_FIELD = "register-last-name-field";
       public const string REGISTER_ADDRESS_FIELD = "register-address-field";

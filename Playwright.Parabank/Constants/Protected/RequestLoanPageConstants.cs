@@ -2,6 +2,7 @@
 {
    internal class RequestLoanPageConstants
    {
+      public const string URL_PATH = "requestloan.htm";
       public const string RL_FORM = "rl-form";
       public const string RL_RESULT = "rl-result";
       public const string RL_ERROR = "rl-error";

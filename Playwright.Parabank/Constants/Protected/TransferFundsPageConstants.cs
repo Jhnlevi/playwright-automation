@@ -2,6 +2,7 @@
 {
    internal class TransferFundsPageConstants
    {
+      public const string URL_PATH = "transfer.htm";
       public const string TF_FORM = "tf-form";
       public const string TF_RESULT = "tf-result";
       public const string TF_ERROR = "tf-error";

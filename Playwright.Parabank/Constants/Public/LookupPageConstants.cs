@@ -2,6 +2,7 @@
 {
    internal class LookupPageConstants
    {
+      public const string URL_PATH = "lookup.htm";
       public const string LOOKUP_FIRST_NAME_FIELD = "lookup-first-name-field";
       public const string LOOKUP_LAST_NAME_FIELD = "lookup-last-name-field";
       public const string LOOKUP_ADDRESS_FIELD = "lookup-address-field";

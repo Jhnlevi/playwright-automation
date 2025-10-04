@@ -2,6 +2,7 @@
 {
    internal class FindTransactionPageConstants
    {
+      public const string URL_PATH = "findtrans.htm";
       public const string FT_FORM = "ft-form";
       public const string FT_RESULT = "ft-result";
       public const string FT_ERROR = "ft-error";

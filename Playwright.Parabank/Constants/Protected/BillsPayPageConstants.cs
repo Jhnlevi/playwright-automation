@@ -2,6 +2,7 @@
 {
    internal class BillsPayPageConstants
    {
+      public const string URL_PATH = "billpay.htm";
       public const string BP_FORM = "bp-form";
       public const string BP_RESULT = "bp-result";
       public const string BP_ERROR = "bp-error";

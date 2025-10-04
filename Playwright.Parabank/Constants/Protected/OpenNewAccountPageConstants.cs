@@ -2,6 +2,7 @@
 {
    internal class OpenNewAccountPageConstants
    {
+      public const string URL_PATH = "openaccount.htm";
       public const string ONA_ACCOUNT_FORM = "ona-account-form";
       public const string ONA_ACCOUNT_RESULT = "ona-account-result";
       public const string ONA_ACCOUNT_ERROR = "ona-account-error";
