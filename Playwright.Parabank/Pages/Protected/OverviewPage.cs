@@ -8,9 +8,9 @@ namespace Playwright.Parabank.Pages.Protected
    {
       private readonly IPage _page;
 
-      private FooterComponent _footer;
-      private HeaderComponent _header;
-      private MenuComponent _menu;
+      public FooterComponent _footer;
+      public HeaderComponent _header;
+      public MenuComponent _menu;
 
       private Dictionary<string, ILocator> _overviewElements;
 
