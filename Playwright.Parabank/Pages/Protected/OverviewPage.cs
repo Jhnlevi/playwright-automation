@@ -1,5 +1,6 @@
 ﻿using Microsoft.Playwright;
 using Playwright.Parabank.Constants.Overview;
+using Playwright.Parabank.Pages.Components;
 
 namespace Playwright.Parabank.Pages.Protected
 {
@@ -7,11 +8,19 @@ namespace Playwright.Parabank.Pages.Protected
    {
       private readonly IPage _page;
 
+      private FooterComponent _footer;
+      private HeaderComponent _header;
+      private MenuComponent _menu;
+
       private Dictionary<string, ILocator> _overviewElements;
 
       public OverviewPage(IPage page)
       {
          _page = page;
+
+         _footer = new FooterComponent(page);
+         _header = new HeaderComponent(page);
+         _menu = new MenuComponent(page);
 
          _overviewElements = new Dictionary<string, ILocator>
          {
