@@ -12,11 +12,11 @@
   <ItemGroup>
     <None Remove="TestData\Login\LoginTD_Negative.json" />
     <None Remove="TestData\Login\LoginTD_Positive.json" />
-    <None Remove="TestData\ONA\ONATD_Positive.json" />
+    <None Remove="TestData\OpenNewAccount\ONATD_Positive.json" />
     <None Remove="TestData\Register\RegisterTD_Negative.json" />
     <None Remove="TestData\Register\RegisterTD_Positive.json" />
-    <None Remove="TestData\TF\TFTD_Negative.json" />
-    <None Remove="TestData\TF\TFTD_Positive.json" />
+    <None Remove="TestData\TransferFund\TFTD_Negative.json" />
+    <None Remove="TestData\TransferFund\TFTD_Positive.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +26,7 @@
     <Content Include="TestData\Login\LoginTD_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\ONA\ONATD_Positive.json">
+    <Content Include="TestData\OpenNewAccount\ONATD_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\Register\RegisterTD_Negative.json">
@@ -35,10 +35,10 @@
     <Content Include="TestData\Register\RegisterTD_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\TF\TFTD_Negative.json">
+    <Content Include="TestData\TransferFund\TFTD_Negative.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\TF\TFTD_Positive.json">
+    <Content Include="TestData\TransferFund\TFTD_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
