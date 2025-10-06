@@ -6,16 +6,16 @@
             "type": "valid_input",
             "data": {
                 "payeeInformation": {
-                    "payeeName": "JohnnySeed12",
-                    "payeeAddress": "JohnnySeed12",
-                    "payeeCity": "JohnnySeed12",
-                    "payeeState": "JohnnySeed12",
-                    "payeeZip": "JohnnySeed12",
-                    "payeeMobileNumber": "JohnnySeed12",
-                    "payeeAccountNumber": "JohnnySeed12",
-                    "payeeVerifyAccountNumber": "JohnnySeed12",
-                    "payeeAmount": "JohnnySeed12",
-                    "payeeFromAccount": "JohnnySeed12"
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
                 }
             },
             "expectedResult": {
