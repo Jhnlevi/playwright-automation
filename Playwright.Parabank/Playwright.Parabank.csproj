@@ -15,6 +15,7 @@
     <None Remove="TestData\ONA\ONATD_Positive.json" />
     <None Remove="TestData\Register\RegisterTD_Negative.json" />
     <None Remove="TestData\Register\RegisterTD_Positive.json" />
+    <None Remove="TestData\TF\TFTD_Positive.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\Register\RegisterTD_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\TF\TFTD_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

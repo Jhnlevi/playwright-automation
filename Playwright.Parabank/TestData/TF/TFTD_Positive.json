@@ -1,10 +1,20 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_TF_0001",
+            "description": "Valid inputs transferring funds",
+            "type": "valid_input",
+            "data": {
+                "user": {
+                    "amount": "50.00",
+                    "fromAccount": "14898",
+                    "toAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Transfer Complete!",
+                "fieldErrors": []
+            }
+        }
+    ]
 }
