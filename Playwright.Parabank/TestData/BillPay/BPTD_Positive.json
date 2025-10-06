@@ -1,0 +1,27 @@
+{
+    "testCases": [
+        {
+            "id": "TC_BP_0001",
+            "description": "Valid inputs for bills payment service.",
+            "type": "valid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bill payment to, in the amount of, from account, was successful.",
+                "fieldErrors": []
+            }
+        }
+    ]
+}

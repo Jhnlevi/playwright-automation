@@ -1,0 +1,46 @@
+{
+    "testCases": [
+        {
+            "id": "TC_TF_0002",
+            "description": "Invalid amount for transferring funds",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "amount": "letters here",
+                    "fromAccount": "14898",
+                    "toAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "An internal error has occurred and has been logged",
+                "fieldErrors": [
+                    {
+                        "field": "amount",
+                        "message": "VALIDATION_MESSAGE_UNAVAILABLE"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_TF_0003",
+            "description": "Missing input amount for transferring funds",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "amount": "",
+                    "fromAccount": "14898",
+                    "toAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "An internal error has occurred and has been logged",
+                "fieldErrors": [
+                    {
+                        "field": "amount",
+                        "message": "VALIDATION_MESSAGE_UNAVAILABLE"
+                    }
+                ]
+            }
+        }
+    ]
+}

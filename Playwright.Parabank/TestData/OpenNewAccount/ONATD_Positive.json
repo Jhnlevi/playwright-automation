@@ -1,0 +1,34 @@
+{
+    "testCases": [
+        {
+            "id": "TC_ONA_0001",
+            "description": "Valid inputs for opening a new account (SAVINGS).",
+            "type": "valid_input",
+            "data": {
+                "account": {
+                    "accountType": "SAVINGS",
+                    "existingAccount": "18006"
+                }
+            },
+            "expectedResult": {
+                "message": "Congratulations, your account is now open.",
+                "fieldErrors": []
+            }
+        },
+        {
+            "id": "TC_ONA_0002",
+            "description": "Valid inputs for opening a new account (CHECKING).",
+            "type": "valid_input",
+            "data": {
+                "account": {
+                    "accountType": "CHECKING",
+                    "existingAccount": "18006"
+                }
+            },
+            "expectedResult": {
+                "message": "Congratulations, your account is now open.",
+                "fieldErrors": []
+            }
+        }
+    ]
+}

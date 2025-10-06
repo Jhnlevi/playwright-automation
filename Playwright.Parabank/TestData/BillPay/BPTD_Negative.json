@@ -1,0 +1,376 @@
+{
+    "testCases": [
+        {
+            "id": "TC_BP_0002",
+            "description": "Missing payee name for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "payee.name",
+                        "message": "Payee name is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0003",
+            "description": "Missing address for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "payee.address.street",
+                        "message": "Address is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0004",
+            "description": "Missing city for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "payee.address.city",
+                        "message": "City is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0005",
+            "description": "Missing state for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "payee.address.state",
+                        "message": "State is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0006",
+            "description": "Missing zip code for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "payee.address.zipCode",
+                        "message": "Zip Code is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0007",
+            "description": "Missing phone number for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "payee.phoneNumber",
+                        "message": "Phone number is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0008",
+            "description": "Missing account number for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "payee.accountNumber",
+                        "message": "Account number is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0009",
+            "description": "Missing verify account number for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "verifyAccount",
+                        "message": "Account number is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0010",
+            "description": "Missing amount for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "amount",
+                        "message": "The amount cannot be empty."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0011",
+            "description": "Missing inputs for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "",
+                    "payeeAddress": "",
+                    "payeeCity": "",
+                    "payeeState": "",
+                    "payeeZip": "",
+                    "payeeMobileNumber": "",
+                    "payeeAccountNumber": "",
+                    "payeeVerifyAccountNumber": "",
+                    "payeeAmount": "",
+                    "payeeFromAccount": ""
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "payee.name",
+                        "message": "Payee name is required."
+                    },
+                    {
+                        "field": "payee.address.street",
+                        "message": "Address is required."
+                    },
+                    {
+                        "field": "payee.address.city",
+                        "message": "City is required."
+                    },
+                    {
+                        "field": "payee.address.state",
+                        "message": "State is required."
+                    },
+                    {
+                        "field": "payee.address.zipCode",
+                        "message": "Zip Code is required."
+                    },
+                    {
+                        "field": "payee.phoneNumber",
+                        "message": "Phone number is required."
+                    },
+                    {
+                        "field": "payee.accountNumber",
+                        "message": "Account number is required."
+                    },
+                    {
+                        "field": "verifyAccount",
+                        "message": "Account number is required."
+                    },
+                    {
+                        "field": "amount",
+                        "message": "The amount cannot be empty."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0012",
+            "description": "Invalid account numbers for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "asdasd",
+                    "payeeVerifyAccountNumber": "asdasd",
+                    "payeeAmount": "500.00",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "payee.accountNumber",
+                        "message": "Please enter a valid number."
+                    },
+                    {
+                        "field": "verifyAccount",
+                        "message": "Please enter a valid number."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_BP_0013",
+            "description": "Invalid amount for bills payment service.",
+            "type": "invalid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "Johnny Apple Seed",
+                    "payeeAddress": "123 street",
+                    "payeeCity": "City of Dreams",
+                    "payeeState": "California",
+                    "payeeZip": "1111",
+                    "payeeMobileNumber": "111 222 3333",
+                    "payeeAccountNumber": "14898",
+                    "payeeVerifyAccountNumber": "14898",
+                    "payeeAmount": "asdasd",
+                    "payeeFromAccount": "14898"
+                }
+            },
+            "expectedResult": {
+                "message": "Bills payment unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "amount",
+                        "message": "Please enter a valid amount."
+                    }
+                ]
+            }
+        },
+    ]
+}
