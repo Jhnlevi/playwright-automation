@@ -1,10 +1,27 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_BP_0001",
+            "description": "Valid inputs for bills payment service.",
+            "type": "valid_input",
+            "data": {
+                "payeeInformation": {
+                    "payeeName": "JohnnySeed12",
+                    "payeeAddress": "JohnnySeed12",
+                    "payeeCity": "JohnnySeed12",
+                    "payeeState": "JohnnySeed12",
+                    "payeeZip": "JohnnySeed12",
+                    "payeeMobileNumber": "JohnnySeed12",
+                    "payeeAccountNumber": "JohnnySeed12",
+                    "payeeVerifyAccountNumber": "JohnnySeed12",
+                    "payeeAmount": "JohnnySeed12",
+                    "payeeFromAccount": "JohnnySeed12"
+                }
+            },
+            "expectedResult": {
+                "message": "Bill payment to, in the amount of, from account, was successful.",
+                "fieldErrors": []
+            }
+        }
+    ]
 }
