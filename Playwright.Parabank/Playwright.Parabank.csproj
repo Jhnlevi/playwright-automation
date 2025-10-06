@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="TestData\BillPay\BPTD_Negative.json" />
+    <None Remove="TestData\BillPay\BPTD_Positive.json" />
     <None Remove="TestData\Login\LoginTD_Negative.json" />
     <None Remove="TestData\Login\LoginTD_Positive.json" />
     <None Remove="TestData\OpenNewAccount\ONATD_Positive.json" />
@@ -20,6 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="TestData\BillPay\BPTD_Negative.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BillPay\BPTD_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestData\Login\LoginTD_Negative.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
