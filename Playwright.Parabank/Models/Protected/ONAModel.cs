@@ -20,19 +20,19 @@ namespace Playwright.Parabank.Models.Protected
       public string Type { get; set; } = null!;
 
       [JsonPropertyName("data")]
-      public Data Data { get; set; } = null!;
+      public ONAData Data { get; set; } = null!;
 
       [JsonPropertyName("expectedResult")]
-      public Expectedresult ExpectedResult { get; set; } = null!;
+      public ONAExpectedresult ExpectedResult { get; set; } = null!;
    }
 
-   public class Data
+   public class ONAData
    {
       [JsonPropertyName("account")]
-      public Account Account { get; set; } = null!;
+      public ONAAccount Account { get; set; } = null!;
    }
 
-   public class Account
+   public class ONAAccount
    {
       [JsonPropertyName("accountType")]
       public string AccountType { get; set; } = null!;
@@ -41,15 +41,15 @@ namespace Playwright.Parabank.Models.Protected
       public string ExistingAccount { get; set; } = null!;
    }
 
-   public class Expectedresult
+   public class ONAExpectedresult
    {
       [JsonPropertyName("message")]
       public string Message { get; set; } = null!;
 
       [JsonPropertyName("fieldErrors")]
-      public List<Fielderrors>? FieldErrors { get; set; } = null!;
+      public List<ONAFielderrors>? FieldErrors { get; set; } = null!;
    }
-   public class Fielderrors
+   public class ONAFielderrors
    {
       [JsonPropertyName("field")]
       public string Field { get; set; } = null!;
