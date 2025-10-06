@@ -42,9 +42,11 @@ namespace Playwright.Parabank.Tests.UI.Protected
          var headers = table.Locator("thead tr th");
          var rows = table.Locator("tbody tr").First;
 
+         ReportManager.Log(_info, "Verifying that the account table is visible.");
          // Check if table is visible
          await Expect(table).ToBeVisibleAsync();
 
+         ReportManager.Log(_info, "Verifying the table headers is structured correctly.");
          // Check headers 
          await Expect(headers).ToHaveTextAsync(new[] { "Account", "Balance*", "Available Amount" });
 
@@ -57,6 +59,7 @@ namespace Playwright.Parabank.Tests.UI.Protected
 
          var rowCounts = await rows.CountAsync();
 
+         ReportManager.Log(_info, "Verifying at least one (1) data is present in the table.");
          // Check if there's at least a single data row
          Assert.That(rowCounts, Is.GreaterThan(0), "Table should have atleast one row of data present.");
       }
