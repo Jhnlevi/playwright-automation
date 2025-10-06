@@ -5,7 +5,7 @@
             "description": "Valid inputs transferring funds",
             "type": "valid_input",
             "data": {
-                "user": {
+                "transaction": {
                     "amount": "50.00",
                     "fromAccount": "14898",
                     "toAccount": "14898"
