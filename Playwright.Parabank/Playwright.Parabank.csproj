@@ -21,6 +21,7 @@
     <None Remove="TestData\Register\RegisterTD_Positive.json" />
     <None Remove="TestData\TransferFund\TFTD_Negative.json" />
     <None Remove="TestData\TransferFund\TFTD_Positive.json" />
+    <None Remove="TestData\UpdateProfile\UPTD_Positive.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,6 +56,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\TransferFund\TFTD_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\UpdateProfile\UPTD_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
