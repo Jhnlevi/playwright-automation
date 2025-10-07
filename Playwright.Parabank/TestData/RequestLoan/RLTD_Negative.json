@@ -1,0 +1,88 @@
+{
+    "testCases": [
+        {
+            "id": "TC_RL_0002",
+            "description": "Missing loan amount for request loan process.",
+            "type": "invalid_input",
+            "data": {
+                "loan": {
+                    "loanAmount": "",
+                    "downPayment": "500.00",
+                    "fromAccount": "21000"
+                }
+            },
+            "expectedResult": {
+                "message": "Error!",
+                "fieldErrors": [
+                    {
+                        "field": "error",
+                        "message": "An internal error has occurred and has been logged."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_RL_0003",
+            "description": "Missing down payment for request loan process.",
+            "type": "invalid_input",
+            "data": {
+                "loan": {
+                    "loanAmount": "1000.00",
+                    "downPayment": "",
+                    "fromAccount": "21000"
+                }
+            },
+            "expectedResult": {
+                "message": "Error!",
+                "fieldErrors": [
+                    {
+                        "field": "error",
+                        "message": "An internal error has occurred and has been logged."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_RL_0004",
+            "description": "Missing inputs for request loan process.",
+            "type": "invalid_input",
+            "data": {
+                "loan": {
+                    "loanAmount": "",
+                    "downPayment": "",
+                    "fromAccount": "21000"
+                }
+            },
+            "expectedResult": {
+                "message": "Error!",
+                "fieldErrors": [
+                    {
+                        "field": "error",
+                        "message": "An internal error has occurred and has been logged."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_RL_0005",
+            "description": "Invalid inputs for request loan process.",
+            "type": "invalid_input",
+            "data": {
+                "loan": {
+                    "loanAmount": "asdasd",
+                    "downPayment": "asdasd",
+                    "fromAccount": "21000"
+                }
+            },
+            "expectedResult": {
+                "message": "Error!",
+                "fieldErrors": [
+                    {
+                        "field": "error",
+                        "message": "An internal error has occurred and has been logged."
+                    }
+                ]
+            }
+        },
+    ]
+}

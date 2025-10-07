@@ -1,0 +1,24 @@
+{
+    "testCases": [
+        {
+            "id": "TC_UP_0001",
+            "description": "Valid inputs for update profile process.",
+            "type": "valid_input",
+            "data": {
+                "profileData": {
+                    "firstName": "Jason",
+                    "lastName": "Cyrus",
+                    "address": "19th avenue",
+                    "city": "San Francisco",
+                    "state": "Louisiana",
+                    "zipCode": "5555",
+                    "mobileNumber": "555 777 9999"
+                }
+            },
+            "expectedResult": {
+                "message": "Successfully updated the profile.",
+                "fieldErrors": []
+            }
+        }
+    ]
+}

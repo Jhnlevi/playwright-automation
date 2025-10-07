@@ -12,13 +12,19 @@
   <ItemGroup>
     <None Remove="TestData\BillPay\BPTD_Negative.json" />
     <None Remove="TestData\BillPay\BPTD_Positive.json" />
+    <None Remove="TestData\FindTransactions\FTTD_Negative.json" />
+    <None Remove="TestData\FindTransactions\FTTD_Positive.json" />
     <None Remove="TestData\Login\LoginTD_Negative.json" />
     <None Remove="TestData\Login\LoginTD_Positive.json" />
     <None Remove="TestData\OpenNewAccount\ONATD_Positive.json" />
     <None Remove="TestData\Register\RegisterTD_Negative.json" />
     <None Remove="TestData\Register\RegisterTD_Positive.json" />
+    <None Remove="TestData\RequestLoan\RLTD_Negative.json" />
+    <None Remove="TestData\RequestLoan\RLTD_Positive.json" />
     <None Remove="TestData\TransferFund\TFTD_Negative.json" />
     <None Remove="TestData\TransferFund\TFTD_Positive.json" />
+    <None Remove="TestData\UpdateProfile\UPTD_Negative.json" />
+    <None Remove="TestData\UpdateProfile\UPTD_Positive.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +32,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\BillPay\BPTD_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\FindTransactions\FTTD_Negative.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\FindTransactions\FTTD_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\Login\LoginTD_Negative.json">
@@ -43,10 +55,22 @@
     <Content Include="TestData\Register\RegisterTD_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestData\RequestLoan\RLTD_Negative.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\RequestLoan\RLTD_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestData\TransferFund\TFTD_Negative.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\TransferFund\TFTD_Positive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\UpdateProfile\UPTD_Negative.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\UpdateProfile\UPTD_Positive.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

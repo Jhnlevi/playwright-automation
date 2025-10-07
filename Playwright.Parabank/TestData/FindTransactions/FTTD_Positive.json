@@ -1,0 +1,65 @@
+{
+    "testCases": [
+        {
+            "id": "TC_FT_0001",
+            "description": "Valid transaction ID for 'Find Transactions' module",
+            "type": "valid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byId": "400095"
+                }
+            },
+            "expectedResult": {
+                "message": "Find transactions successful.",
+                "fieldErrors": []
+            }
+        },
+        {
+            "id": "TC_FT_0002",
+            "description": "Valid date for 'Find Transactions' module",
+            "type": "valid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byDate": "01-05-2020"
+                }
+            },
+            "expectedResult": {
+                "message": "Find transactions successful.",
+                "fieldErrors": []
+            }
+        },
+        {
+            "id": "TC_TD_0003",
+            "description": "Valid date range for 'Find Transactions' module",
+            "type": "valid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byFromDate": "11-15-2020",
+                    "byToDate": "01-10-2021"
+                }
+            },
+            "expectedResult": {
+                "message": "Find transactions successful.",
+                "fieldErrors": []
+            }
+        },
+        {
+            "id": "TC_FT_0004",
+            "description": "Valid amount for 'Find Transactions' module",
+            "type": "valid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byAmount": "1000.00"
+                }
+            },
+            "expectedResult": {
+                "message": "Find transactions successful.",
+                "fieldErrors": []
+            }
+        },
+    ]
+}
