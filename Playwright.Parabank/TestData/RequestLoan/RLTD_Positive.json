@@ -1,10 +1,20 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_RL_0001",
+            "description": "Valid inputs for request loan process.",
+            "type": "valid_input",
+            "data": {
+                "loan": {
+                    "loanAmount": "1000.00",
+                    "downPayment": "500.00",
+                    "fromAccount": "21000"
+                }
+            },
+            "expectedResult": {
+                "message": "Loan Request Processed.",
+                "fieldErrors": []
+            }
+        }
+    ]
 }
