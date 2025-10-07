@@ -1,10 +1,179 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_UP_0002",
+            "description": "Missing first name for update profile process.",
+            "type": "invalid_input",
+            "data": {
+                "profileData": {
+                    "firstName": "",
+                    "lastName": "Cyrus",
+                    "address": "19th avenue",
+                    "city": "San Francisco",
+                    "state": "Louisiana",
+                    "zipCode": "5555",
+                    "mobileNumber": "555 777 9999"
+                }
+            },
+            "expectedResult": {
+                "message": "Unable to save profile details.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.firstName",
+                        "message": "First name is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_UP_0003",
+            "description": "Missing last name for update profile process.",
+            "type": "invalid_input",
+            "data": {
+                "profileData": {
+                    "firstName": "Jason",
+                    "lastName": "",
+                    "address": "19th avenue",
+                    "city": "San Francisco",
+                    "state": "Louisiana",
+                    "zipCode": "5555",
+                    "mobileNumber": "555 777 9999"
+                }
+            },
+            "expectedResult": {
+                "message": "Unable to save profile details.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.lastName",
+                        "message": "Last name is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_UP_0004",
+            "description": "Missing address for update profile process.",
+            "type": "invalid_input",
+            "data": {
+                "profileData": {
+                    "firstName": "Jason",
+                    "lastName": "Cyrus",
+                    "address": "",
+                    "city": "San Francisco",
+                    "state": "Louisiana",
+                    "zipCode": "5555",
+                    "mobileNumber": "555 777 9999"
+                }
+            },
+            "expectedResult": {
+                "message": "Unable to save profile details.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.address.street",
+                        "message": "Address is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_UP_0005",
+            "description": "Missing city for update profile process.",
+            "type": "invalid_input",
+            "data": {
+                "profileData": {
+                    "firstName": "Jason",
+                    "lastName": "Cyrus",
+                    "address": "19th avenue",
+                    "city": "",
+                    "state": "Louisiana",
+                    "zipCode": "5555",
+                    "mobileNumber": "555 777 9999"
+                }
+            },
+            "expectedResult": {
+                "message": "Unable to save profile details.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.address.city",
+                        "message": "City is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_UP_0006",
+            "description": "Missing state for update profile process.",
+            "type": "invalid_input",
+            "data": {
+                "profileData": {
+                    "firstName": "Jason",
+                    "lastName": "Cyrus",
+                    "address": "19th avenue",
+                    "city": "San Francisco",
+                    "state": "",
+                    "zipCode": "5555",
+                    "mobileNumber": "555 777 9999"
+                }
+            },
+            "expectedResult": {
+                "message": "Unable to save profile details.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.address.state",
+                        "message": "State is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_UP_0007",
+            "description": "Missing zip code for update profile process.",
+            "type": "invalid_input",
+            "data": {
+                "profileData": {
+                    "firstName": "Jason",
+                    "lastName": "Cyrus",
+                    "address": "19th avenue",
+                    "city": "San Francisco",
+                    "state": "Louisiana",
+                    "zipCode": "",
+                    "mobileNumber": "555 777 9999"
+                }
+            },
+            "expectedResult": {
+                "message": "Unable to save profile details.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.address.zipCode",
+                        "message": "Zip Code is required."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_UP_0008",
+            "description": "Missing zip code for update profile process.",
+            "type": "invalid_input",
+            "data": {
+                "profileData": {
+                    "firstName": "Jason",
+                    "lastName": "Cyrus",
+                    "address": "19th avenue",
+                    "city": "San Francisco",
+                    "state": "Louisiana",
+                    "zipCode": "5555",
+                    "mobileNumber": ""
+                }
+            },
+            "expectedResult": {
+                "message": "Unable to save profile details.",
+                "fieldErrors": [
+                    {
+                        "field": "customer.phoneNumber",
+                        "message": "Phone number is optional."
+                    }
+                ]
+            }
+        }
+    ]
 }
