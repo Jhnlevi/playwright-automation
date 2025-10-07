@@ -1,10 +1,174 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+    "testCases": [
+        {
+            "id": "TC_FT_0005",
+            "description": "Missing transaction ID for 'Find Transactions' module.",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byId": ""
+                }
+            },
+            "expectedResult": {
+                "message": "Process unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "transactionId",
+                        "message": "Invalid transaction ID"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_FT_0006",
+            "description": "Invalid transaction ID for 'Find Transactions' module.",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byId": "asdasd"
+                }
+            },
+            "expectedResult": {
+                "message": "Process unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "transactionId",
+                        "message": "Invalid transaction ID"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_FT_0007",
+            "description": "Missing date for 'Find Transactions' module.",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byDate": "01-05-2020"
+                }
+            },
+            "expectedResult": {
+                "message": "Process unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "transactionDate",
+                        "message": "Invalid date format"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_FT_0008",
+            "description": "Invalid date for 'Find Transactions' module.",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byDate": "asdasd"
+                }
+            },
+            "expectedResult": {
+                "message": "Process unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "transactionDate",
+                        "message": "Invalid date format"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_FT_0009",
+            "description": "Missing date range for 'Find Transactions' module.",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byFromDate": "",
+                    "byToDate": ""
+                }
+            },
+            "expectedResult": {
+                "message": "Process unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "fromDate",
+                        "message": "Invalid date format"
+                    },
+                    {
+                        "field": "toDate",
+                        "message": "Invalid date format"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_FT_0010",
+            "description": "Invalid date range for 'Find Transactions' module.",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byFromDate": "asd",
+                    "byToDate": "dsa"
+                }
+            },
+            "expectedResult": {
+                "message": "Process unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "fromDate",
+                        "message": "Invalid date format"
+                    },
+                    {
+                        "field": "toDate",
+                        "message": "Invalid date format"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_FT_0011",
+            "description": "Missing amount for 'Find Transactions' module.",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byAmount": ""
+                }
+            },
+            "expectedResult": {
+                "message": "Process unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "amount",
+                        "message": "Invalid amount"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "TC_FT_0012",
+            "description": "Invalid amount for 'Find Transactions' module.",
+            "type": "invalid_input",
+            "data": {
+                "transaction": {
+                    "account": "40095",
+                    "byAmount": "aaaaaaaa"
+                }
+            },
+            "expectedResult": {
+                "message": "Process unsuccessful.",
+                "fieldErrors": [
+                    {
+                        "field": "amount",
+                        "message": "Invalid amount"
+                    }
+                ]
+            }
+        }
+    ]
 }
