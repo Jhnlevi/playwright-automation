@@ -1,7 +1,7 @@
 {
     "testCases": [
         {
-            "id": "TC_TD_0001",
+            "id": "TC_FT_0001",
             "description": "Valid transaction ID for 'Find Transactions' module",
             "type": "valid_input",
             "data": {
@@ -16,7 +16,7 @@
             }
         },
         {
-            "id": "TC_TD_0002",
+            "id": "TC_FT_0002",
             "description": "Valid date for 'Find Transactions' module",
             "type": "valid_input",
             "data": {
@@ -47,7 +47,7 @@
             }
         },
         {
-            "id": "TC_TD_0004",
+            "id": "TC_FT_0004",
             "description": "Valid amount for 'Find Transactions' module",
             "type": "valid_input",
             "data": {
