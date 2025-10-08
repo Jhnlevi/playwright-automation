@@ -14,7 +14,7 @@ namespace Playwright.Parabank.Models.Protected
       public string Id { get; set; } = null!;
 
       [JsonPropertyName("description")]
-      public string description { get; set; } = null!;
+      public string Description { get; set; } = null!;
 
       [JsonPropertyName("type")]
       public string Type { get; set; } = null!;
