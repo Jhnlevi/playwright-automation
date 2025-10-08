@@ -2,7 +2,7 @@
 
 namespace Playwright.Parabank.Models.Protected
 {
-   internal class UPModel
+   public class UPModel
    {
       [JsonPropertyName("testCases")]
       public List<UPTestCase>? TestCases { get; set; }
@@ -24,6 +24,11 @@ namespace Playwright.Parabank.Models.Protected
 
       [JsonPropertyName("expectedResult")]
       public UPExpectedresult ExpectedResult { get; set; } = null!;
+
+      public override string ToString()
+      {
+         return $"{Id} : {Description}";
+      }
    }
 
    public class UPData
