@@ -24,6 +24,11 @@ namespace Playwright.Parabank.Models.Protected
 
       [JsonPropertyName("expectedResult")]
       public ONAExpectedresult ExpectedResult { get; set; } = null!;
+
+      public override string ToString()
+      {
+         return $"{Id} : {Description}";
+      }
    }
 
    public class ONAData
