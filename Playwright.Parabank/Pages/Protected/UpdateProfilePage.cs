@@ -27,19 +27,20 @@ namespace Playwright.Parabank.Pages.Protected
             { UpdateContantInfoPageConstants.UCI_FORM, _page.Locator("#updateProfileForm") },
             { UpdateContantInfoPageConstants.UCI_RESULT, _page.Locator("#updateProfileResult") },
             { UpdateContantInfoPageConstants.UCI_ERROR, _page.Locator("#updateProfileError") },
-            { UpdateContantInfoPageConstants.UCI_FIRST_NAME, _page.Locator("input[id=\"customer\\.firstName\"]") },
-            { UpdateContantInfoPageConstants.UCI_LAST_NAME, _page.Locator("input[id=\"customer\\.lastName\"]") },
-            { UpdateContantInfoPageConstants.UCI_ADDRESS, _page.Locator("input[id=\"customer\\.address\\.street\"]") },
-            { UpdateContantInfoPageConstants.UCI_CITY, _page.Locator("input[id=\"customer\\.address\\.city\"]") },
-            { UpdateContantInfoPageConstants.UCI_STATE, _page.Locator("input[id=\"customer\\.address\\.state\"]") },
-            { UpdateContantInfoPageConstants.UCI_ZIP_CODE, _page.Locator("input[id=\"customer\\.address\\.zipCode\"]") },
-            { UpdateContantInfoPageConstants.UCI_MOBILE_NUMBER, _page.Locator("input[id=\"customer\\.phoneNumber\"]") },
+            { UpdateContantInfoPageConstants.UCI_FIRST_NAME, _page.Locator("[name='customer.firstName']") },
+            { UpdateContantInfoPageConstants.UCI_LAST_NAME, _page.Locator("[name='customer.lastName']") },
+            { UpdateContantInfoPageConstants.UCI_ADDRESS, _page.Locator("[name='customer.address.street']") },
+            { UpdateContantInfoPageConstants.UCI_CITY, _page.Locator("[name='customer.address.city']") },
+            { UpdateContantInfoPageConstants.UCI_STATE, _page.Locator("[name='customer.address.state']") },
+            { UpdateContantInfoPageConstants.UCI_ZIP_CODE, _page.Locator("[name='customer.address.zipCode']") },
+            { UpdateContantInfoPageConstants.UCI_MOBILE_NUMBER, _page.Locator("[name='customer.phoneNumber']") },
             { UpdateContantInfoPageConstants.UCI_UPDATE_PROFILE_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "Update Profile" }) }
          };
       }
       public async Task EnterTextAsync(string field, string text)
       {
          await _upElements[field].ClearAsync();
+         await _upElements[field].WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Visible });
          await _upElements[field].FillAsync(text);
       }
 
