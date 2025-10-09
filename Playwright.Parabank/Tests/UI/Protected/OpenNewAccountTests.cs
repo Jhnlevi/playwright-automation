@@ -52,9 +52,8 @@ namespace Playwright.Parabank.Tests.UI.Protected
          ReportManager.Log(_info, $"Selecting the account type: {account.AccountType}.");
          await _ona.SelectDropdownByLabelAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_TYPE, account.AccountType);
 
-         // Currently hardcoded existing account ID here to easily update it whenever Parabank changes the ID.
-         ReportManager.Log(_info, "Selecting an existing account - 69066");
-         await _ona.SelectDropdownByLabelAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_EXISTING_ID, "69066");
+         ReportManager.Log(_info, $"Selecting an existing account.");
+         await _ona.SelectDropdownByLabelAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_EXISTING_ID, CustomTestContext.AccountId);
 
          ReportManager.Log(_info, "Clicking 'OPEN NEW ACCOUNT' button.");
          await _ona.ClickElementAsync(OpenNewAccountPageConstants.ONA_BUTTON);
