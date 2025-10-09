@@ -59,21 +59,25 @@ namespace Playwright.Parabank.Tests.UI.Protected
          ReportManager.Log(_info, "Clicking 'OPEN NEW ACCOUNT' button.");
          await _ona.ClickElementAsync(OpenNewAccountPageConstants.ONA_BUTTON);
 
+         var accountResult = _ona.IsElementDisplayed(OpenNewAccountPageConstants.ONA_ACCOUNT_RESULT);
+
          ReportManager.Log(_info, "Verifying that the account is successfully created");
          await Assert.MultipleAsync(async () =>
          {
-            await Expect(_ona.IsElementDisplayed(OpenNewAccountPageConstants.ONA_ACCOUNT_RESULT)).ToBeVisibleAsync();
-            await Expect(_ona.IsElementDisplayed(OpenNewAccountPageConstants.ONA_ACCOUNT_RESULT)).ToContainTextAsync("Congratulations, your account is now open.");
+            await Expect(accountResult).ToBeVisibleAsync();
+            await Expect(accountResult).ToContainTextAsync("Congratulations, your account is now open.");
+         });
 
-            var newAccountId = await _ona.GetTextAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_NEW_ID);
+         var newAccountId = await _ona.GetTextAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_NEW_ID);
+         var accountDetails = Page.Locator("#accountDetails");
 
-            ReportManager.Log(_info, $"Clicking \"{newAccountId}\" to open account page.");
-            await _ona.ClickElementAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_NEW_ID);
+         ReportManager.Log(_info, $"Clicking '{newAccountId}' to open account page.");
+         await _ona.ClickElementAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_NEW_ID);
 
-            //Assert.That(Page.Url, Does.Contain($"parabank/activity.htm?id={newAccountId}"));
-            await Expect(Page).ToHaveURLAsync(new Regex($".parabank/activity\\.htm\\?id={newAccountId}"));
-
-            var accountDetails = Page.Locator("#accountDetails");
+         ReportManager.Log(_info, "Verifying that the account accessible.");
+         await Assert.MultipleAsync(async () =>
+         {
+            await Expect(Page).ToHaveURLAsync(new Regex($".*parabank/activity\\.htm\\?id={newAccountId}"));
             await Expect(accountDetails).ToBeVisibleAsync();
          });
       }
