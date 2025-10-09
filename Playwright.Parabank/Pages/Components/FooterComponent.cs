@@ -3,17 +3,17 @@ using Playwright.Parabank.Constants.Components;
 
 namespace Playwright.Parabank.Pages.Components
 {
-   internal class FooterComponent
-   {
-      private readonly IPage _page;
+    internal class FooterComponent
+    {
+        private readonly IPage _page;
 
-      private readonly Dictionary<string, ILocator> _footerElements;
+        private readonly Dictionary<string, ILocator> _footerElements;
 
-      public FooterComponent(IPage page)
-      {
-         _page = page;
+        public FooterComponent(IPage page)
+        {
+            _page = page;
 
-         _footerElements = new Dictionary<string, ILocator>
+            _footerElements = new Dictionary<string, ILocator>
          {
             { FooterComponentConstants.FOOTER_HOME, _page.GetByRole(AriaRole.Link, new() { Name = "Home" }) },
             { FooterComponentConstants.FOOTER_ABOUT, _page.GetByRole(AriaRole.Link, new() { Name = "About Us" }) },
@@ -24,10 +24,10 @@ namespace Playwright.Parabank.Pages.Components
             { FooterComponentConstants.FOOTER_SITE_MAP, _page.GetByRole(AriaRole.Link, new() { Name = "Site Map" }) },
             { FooterComponentConstants.FOOTER_CONTACT_US, _page.GetByRole(AriaRole.Link, new() { Name = "Contact Us" }) },
          };
-      }
+        }
 
-      public async Task ClickElementAsync(string field) => await _footerElements[field].ClickAsync();
+        public async Task ClickElementAsync(string field) => await _footerElements[field].ClickAsync();
 
-      public ILocator IsElementDisplayed(string field) => _footerElements[field];
-   }
+        public ILocator IsElementDisplayed(string field) => _footerElements[field];
+    }
 }

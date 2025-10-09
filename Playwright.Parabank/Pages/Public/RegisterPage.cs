@@ -3,17 +3,17 @@ using Playwright.Parabank.Constants.Public;
 
 namespace Playwright.Parabank.Pages.Public
 {
-   internal class RegisterPage
-   {
-      private readonly IPage _page;
+    internal class RegisterPage
+    {
+        private readonly IPage _page;
 
-      private readonly Dictionary<string, ILocator> _registerElements;
+        private readonly Dictionary<string, ILocator> _registerElements;
 
-      public RegisterPage(IPage page)
-      {
-         _page = page;
+        public RegisterPage(IPage page)
+        {
+            _page = page;
 
-         _registerElements = new Dictionary<string, ILocator>
+            _registerElements = new Dictionary<string, ILocator>
          {
             { RegisterPageConstants.REGISTER_FIRST_NAME_FIELD, _page.Locator("[name='customer.firstName']") },
             { RegisterPageConstants.REGISTER_LAST_NAME_FIELD, _page.Locator("[name='customer.lastName']") },
@@ -30,17 +30,17 @@ namespace Playwright.Parabank.Pages.Public
             { RegisterPageConstants.REGISTER_LEFT_PANEL, _page.Locator("#leftPanel") },
             { RegisterPageConstants.REGISTER_RIGHT_PANEL, _page.Locator("#rightPanel") }
          };
-      }
-      public async Task EnterTextAsync(string field, string text)
-      {
-         await _registerElements[field].ClearAsync();
-         await _registerElements[field].FillAsync(text);
-      }
+        }
+        public async Task EnterTextAsync(string field, string text)
+        {
+            await _registerElements[field].ClearAsync();
+            await _registerElements[field].FillAsync(text);
+        }
 
-      public async Task<string> GetTextAsync(string field) => await _registerElements[field].InnerTextAsync();
+        public async Task<string> GetTextAsync(string field) => await _registerElements[field].InnerTextAsync();
 
-      public async Task ClickElementAsync(string field) => await _registerElements[field].ClickAsync();
+        public async Task ClickElementAsync(string field) => await _registerElements[field].ClickAsync();
 
-      public ILocator IsElementDisplayed(string field) => _registerElements[field];
-   }
+        public ILocator IsElementDisplayed(string field) => _registerElements[field];
+    }
 }

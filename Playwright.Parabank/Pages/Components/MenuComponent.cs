@@ -3,17 +3,17 @@ using Playwright.Parabank.Constants.Components;
 
 namespace Playwright.Parabank.Pages.Components
 {
-   internal class MenuComponent
-   {
-      private readonly IPage _page;
+    internal class MenuComponent
+    {
+        private readonly IPage _page;
 
-      private readonly Dictionary<string, ILocator> _menuElements;
+        private readonly Dictionary<string, ILocator> _menuElements;
 
-      public MenuComponent(IPage page)
-      {
-         _page = page;
+        public MenuComponent(IPage page)
+        {
+            _page = page;
 
-         _menuElements = new Dictionary<string, ILocator>
+            _menuElements = new Dictionary<string, ILocator>
          {
             { MenuComponentConstants.MENU_LINK_OPEN_ACCOUNT, _page.GetByRole(AriaRole.Link, new() { Name = "Open New Account" })},
             { MenuComponentConstants.MENU_LINK_OVERVIEW, _page.GetByRole(AriaRole.Link, new() { Name = "Accounts Overview" })},
@@ -24,10 +24,10 @@ namespace Playwright.Parabank.Pages.Components
             { MenuComponentConstants.MENU_LINK_REQUEST_LOAN, _page.GetByRole(AriaRole.Link, new() { Name = "Request Loan" })},
             { MenuComponentConstants.MENU_LINK_LOGOUT, _page.GetByRole(AriaRole.Link, new() { Name = "Log Out" })}
          };
-      }
+        }
 
-      public async Task ClickElementAsync(string field) => await _menuElements[field].ClickAsync();
+        public async Task ClickElementAsync(string field) => await _menuElements[field].ClickAsync();
 
-      public ILocator IsElementDisplayed(string field) => _menuElements[field];
-   }
+        public ILocator IsElementDisplayed(string field) => _menuElements[field];
+    }
 }

@@ -4,25 +4,25 @@ using Playwright.Parabank.Pages.Components;
 
 namespace Playwright.Parabank.Pages.Protected
 {
-   internal class BillsPayPage
-   {
-      private readonly IPage _page;
+    internal class BillsPayPage
+    {
+        private readonly IPage _page;
 
-      public FooterComponent _footer;
-      public HeaderComponent _header;
-      public MenuComponent _menu;
+        public FooterComponent _footer;
+        public HeaderComponent _header;
+        public MenuComponent _menu;
 
-      private Dictionary<string, ILocator> _bpElements;
+        private Dictionary<string, ILocator> _bpElements;
 
-      public BillsPayPage(IPage page)
-      {
-         _page = page;
+        public BillsPayPage(IPage page)
+        {
+            _page = page;
 
-         _footer = new FooterComponent(page);
-         _header = new HeaderComponent(page);
-         _menu = new MenuComponent(page);
+            _footer = new FooterComponent(page);
+            _header = new HeaderComponent(page);
+            _menu = new MenuComponent(page);
 
-         _bpElements = new Dictionary<string, ILocator>
+            _bpElements = new Dictionary<string, ILocator>
          {
             { BillsPayPageConstants.BP_FORM, _page.Locator("#billpayForm") },
             { BillsPayPageConstants.BP_RESULT, _page.Locator("#billpayResult") },
@@ -39,18 +39,18 @@ namespace Playwright.Parabank.Pages.Protected
             { BillsPayPageConstants.BP_FROM_ACCOUNT, _page.Locator("select[name=\"fromAccountId\"]") },
             { BillsPayPageConstants.BP_SEND_PAYMENT_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "Send Payment" }) }
          };
-      }
-      public async Task EnterTextAsync(string field, string text)
-      {
-         await _bpElements[field].ClearAsync();
-         await _bpElements[field].FillAsync(text);
-      }
+        }
+        public async Task EnterTextAsync(string field, string text)
+        {
+            await _bpElements[field].ClearAsync();
+            await _bpElements[field].FillAsync(text);
+        }
 
-      public async Task SelectDropdownByLabelAsync(string field, string label) => await _bpElements[field]
-         .SelectOptionAsync(new SelectOptionValue { Label = label });
+        public async Task SelectDropdownByLabelAsync(string field, string label) => await _bpElements[field]
+           .SelectOptionAsync(new SelectOptionValue { Label = label });
 
-      public async Task ClickElementAsync(string field) => await _bpElements[field].ClickAsync();
+        public async Task ClickElementAsync(string field) => await _bpElements[field].ClickAsync();
 
-      public ILocator IsElementDisplayed(string field) => _bpElements[field];
-   }
+        public ILocator IsElementDisplayed(string field) => _bpElements[field];
+    }
 }

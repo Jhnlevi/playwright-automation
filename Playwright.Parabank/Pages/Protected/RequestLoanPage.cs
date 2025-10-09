@@ -4,25 +4,25 @@ using Playwright.Parabank.Pages.Components;
 
 namespace Playwright.Parabank.Pages.Protected
 {
-   internal class RequestLoanPage
-   {
-      private readonly IPage _page;
+    internal class RequestLoanPage
+    {
+        private readonly IPage _page;
 
-      public FooterComponent _footer;
-      public HeaderComponent _header;
-      public MenuComponent _menu;
+        public FooterComponent _footer;
+        public HeaderComponent _header;
+        public MenuComponent _menu;
 
-      private Dictionary<string, ILocator> _rlElements;
+        private Dictionary<string, ILocator> _rlElements;
 
-      public RequestLoanPage(IPage page)
-      {
-         _page = page;
+        public RequestLoanPage(IPage page)
+        {
+            _page = page;
 
-         _footer = new FooterComponent(page);
-         _header = new HeaderComponent(page);
-         _menu = new MenuComponent(page);
+            _footer = new FooterComponent(page);
+            _header = new HeaderComponent(page);
+            _menu = new MenuComponent(page);
 
-         _rlElements = new Dictionary<string, ILocator>
+            _rlElements = new Dictionary<string, ILocator>
          {
             { RequestLoanPageConstants.RL_FORM, _page.Locator("#requestLoanForm") },
             { RequestLoanPageConstants.RL_RESULT, _page.Locator("#requestLoanResult") },
@@ -34,14 +34,14 @@ namespace Playwright.Parabank.Pages.Protected
             { RequestLoanPageConstants.RL_REQUEST_APPROVED, _page.Locator("#loanRequestApproved") },
             { RequestLoanPageConstants.RL_REQUEST_DENIED, _page.Locator("#loanRequestDenied") }
          };
-      }
-      public async Task SelectDropdownByLabelAsync(string field, string label) => await _rlElements[field]
-         .SelectOptionAsync(new SelectOptionValue { Label = label });
+        }
+        public async Task SelectDropdownByLabelAsync(string field, string label) => await _rlElements[field]
+           .SelectOptionAsync(new SelectOptionValue { Label = label });
 
-      public async Task<string> GetTextAsync(string field) => await _rlElements[field].InnerTextAsync();
+        public async Task<string> GetTextAsync(string field) => await _rlElements[field].InnerTextAsync();
 
-      public async Task ClickElementAsync(string field) => await _rlElements[field].ClickAsync();
+        public async Task ClickElementAsync(string field) => await _rlElements[field].ClickAsync();
 
-      public ILocator IsElementDisplayed(string field) => _rlElements[field];
-   }
+        public ILocator IsElementDisplayed(string field) => _rlElements[field];
+    }
 }

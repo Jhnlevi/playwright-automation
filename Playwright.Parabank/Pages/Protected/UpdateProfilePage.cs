@@ -4,25 +4,25 @@ using Playwright.Parabank.Pages.Components;
 
 namespace Playwright.Parabank.Pages.Protected
 {
-   internal class UpdateProfilePage
-   {
-      private readonly IPage _page;
+    internal class UpdateProfilePage
+    {
+        private readonly IPage _page;
 
-      public FooterComponent _footer;
-      public HeaderComponent _header;
-      public MenuComponent _menu;
+        public FooterComponent _footer;
+        public HeaderComponent _header;
+        public MenuComponent _menu;
 
-      private Dictionary<string, ILocator> _upElements;
+        private Dictionary<string, ILocator> _upElements;
 
-      public UpdateProfilePage(IPage page)
-      {
-         _page = page;
+        public UpdateProfilePage(IPage page)
+        {
+            _page = page;
 
-         _footer = new FooterComponent(page);
-         _header = new HeaderComponent(page);
-         _menu = new MenuComponent(page);
+            _footer = new FooterComponent(page);
+            _header = new HeaderComponent(page);
+            _menu = new MenuComponent(page);
 
-         _upElements = new Dictionary<string, ILocator>
+            _upElements = new Dictionary<string, ILocator>
          {
             { UpdateContantInfoPageConstants.UCI_FORM, _page.Locator("#updateProfileForm") },
             { UpdateContantInfoPageConstants.UCI_RESULT, _page.Locator("#updateProfileResult") },
@@ -36,18 +36,18 @@ namespace Playwright.Parabank.Pages.Protected
             { UpdateContantInfoPageConstants.UCI_MOBILE_NUMBER, _page.Locator("[name='customer.phoneNumber']") },
             { UpdateContantInfoPageConstants.UCI_UPDATE_PROFILE_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "Update Profile" }) }
          };
-      }
-      public async Task EnterTextAsync(string field, string text)
-      {
-         await _upElements[field].ClearAsync();
-         await _upElements[field].WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Visible });
-         await _upElements[field].FillAsync(text);
-      }
+        }
+        public async Task EnterTextAsync(string field, string text)
+        {
+            await _upElements[field].ClearAsync();
+            await _upElements[field].WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Visible });
+            await _upElements[field].FillAsync(text);
+        }
 
-      public async Task<string> GetTextAsync(string field) => await _upElements[field].InnerTextAsync();
+        public async Task<string> GetTextAsync(string field) => await _upElements[field].InnerTextAsync();
 
-      public async Task ClickElementAsync(string field) => await _upElements[field].ClickAsync();
+        public async Task ClickElementAsync(string field) => await _upElements[field].ClickAsync();
 
-      public ILocator IsElementDisplayed(string field) => _upElements[field];
-   }
+        public ILocator IsElementDisplayed(string field) => _upElements[field];
+    }
 }
