@@ -42,7 +42,7 @@ namespace Playwright.Parabank.Tests.UI.Public
          await _login.ClickElementAsync(LoginPageConstants.LOGIN_BUTTON);
          ReportManager.Log(_info, "Verifying that the user reaches the dashboard overview after logging in.");
 
-         var accountId = await Page.Locator("a[href^='activity.htm?id=']").InnerTextAsync();
+         var accountId = await Page.Locator("a[href^='activity.htm?id=']").First.InnerHTMLAsync();
 
          SharedTestData.AccountId = accountId;
 
