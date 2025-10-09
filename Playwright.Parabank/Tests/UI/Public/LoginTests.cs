@@ -44,7 +44,7 @@ namespace Playwright.Parabank.Tests.UI.Public
 
          var accountId = await Page.Locator("a[href^='activity.htm?id=']").InnerTextAsync();
 
-         CustomTestContext.AccountId = accountId;
+         SharedTestData.AccountId = accountId;
 
          var overview = Page.Locator("#showOverview");
 
