@@ -74,7 +74,7 @@ namespace Playwright.Parabank.Tests.UI.Protected
          ReportManager.Log(_info, $"Clicking '{newAccountId}' to open account page.");
          await _ona.ClickElementAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_NEW_ID);
 
-         ReportManager.Log(_info, "Verifying that the account accessible.");
+         ReportManager.Log(_info, $"Verifying that the account '{newAccountId}' is accessible.");
          await Assert.MultipleAsync(async () =>
          {
             await Expect(Page).ToHaveURLAsync(new Regex($".*parabank/activity\\.htm\\?id={newAccountId}"));
