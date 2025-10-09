@@ -4,29 +4,29 @@ using Playwright.SauceDemo.Pages.Components;
 
 namespace Playwright.SauceDemo.Pages.Product
 {
-   internal class ProductDetailsPage
-   {
-      private readonly IPage _page;
+    internal class ProductDetailsPage
+    {
+        private readonly IPage _page;
 
-      // Dictionary field
-      private readonly Dictionary<string, ILocator> _prodDetailsElements;
+        // Dictionary field
+        private readonly Dictionary<string, ILocator> _prodDetailsElements;
 
-      // Component fields
-      public HeaderComponent _header { get; }
-      public FooterComponent _footer { get; }
-      public MenuComponent _menu { get; }
+        // Component fields
+        public HeaderComponent _header { get; }
+        public FooterComponent _footer { get; }
+        public MenuComponent _menu { get; }
 
-      // Constructor
-      public ProductDetailsPage(IPage page)
-      {
-         _page = page;
+        // Constructor
+        public ProductDetailsPage(IPage page)
+        {
+            _page = page;
 
-         // Components
-         _header = new HeaderComponent(page);
-         _footer = new FooterComponent(page);
-         _menu = new MenuComponent(page);
+            // Components
+            _header = new HeaderComponent(page);
+            _footer = new FooterComponent(page);
+            _menu = new MenuComponent(page);
 
-         _prodDetailsElements = new Dictionary<string, ILocator>
+            _prodDetailsElements = new Dictionary<string, ILocator>
          {
             { ProductDetailsPageConstants.PRODUCT_DETAILS_DESC_CONTAINER, _page.Locator("div.inventory_details_desc_container") },
             { ProductDetailsPageConstants.PRODUCT_DETAILS_DESC_NAME, _page.Locator("div.inventory_details_name") },
@@ -35,11 +35,11 @@ namespace Playwright.SauceDemo.Pages.Product
             { ProductDetailsPageConstants.PRODUCT_DETAILS_REMOVE_FROM_CART_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "REMOVE" }) },
             { ProductDetailsPageConstants.PRODUCT_DETAILS_BACK_BUTTON, _page.GetByRole(AriaRole.Button, new() { Name = "<- Back" }) }
          };
-      }
+        }
 
-      //Actions
-      public async Task ClickElementAsync(string field) => await _prodDetailsElements[field].ClickAsync();
-      public async Task<string> GetTextAsync(string field) => await _prodDetailsElements[field].InnerTextAsync();
-      public ILocator IsElementDisplayed(string field) => _prodDetailsElements[field];
-   }
+        //Actions
+        public async Task ClickElementAsync(string field) => await _prodDetailsElements[field].ClickAsync();
+        public async Task<string> GetTextAsync(string field) => await _prodDetailsElements[field].InnerTextAsync();
+        public ILocator IsElementDisplayed(string field) => _prodDetailsElements[field];
+    }
 }

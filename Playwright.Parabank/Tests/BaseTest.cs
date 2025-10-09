@@ -4,34 +4,34 @@ using Playwright.Parabank.Utils;
 
 namespace Playwright.Parabank.Tests
 {
-   internal abstract class BaseTest : PageTest
-   {
-      protected AppSettings _config;
+    internal abstract class BaseTest : PageTest
+    {
+        protected AppSettings _config;
 
-      [OneTimeSetUp]
-      public void ReportSetup() => ReportManager.CreateExtentReport("Parabank");
+        [OneTimeSetUp]
+        public void ReportSetup() => ReportManager.CreateExtentReport("Parabank");
 
-      [SetUp]
-      public virtual void Setup()
-      {
-         _config = ConfigHelper.Load<AppSettings>("appsettings.json");
+        [SetUp]
+        public virtual void Setup()
+        {
+            _config = ConfigHelper.Load<AppSettings>("appsettings.json");
 
-         ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
-      }
+            ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
+        }
 
-      [TearDown]
-      public async Task Teardown()
-      {
-         var context = TestContext.CurrentContext;
-         var status = context.Result.Outcome.Status.ToString();
-         var message = context.Result.Message;
-         var trace = context.Result.StackTrace;
-         var name = context.Test.MethodName;
+        [TearDown]
+        public async Task Teardown()
+        {
+            var context = TestContext.CurrentContext;
+            var status = context.Result.Outcome.Status.ToString();
+            var message = context.Result.Message;
+            var trace = context.Result.StackTrace;
+            var name = context.Test.MethodName;
 
-         await ResultHelper.LogResultsAsync(Page, status, message, trace!, name!);
-      }
+            await ResultHelper.LogResultsAsync(Page, status, message, trace!, name!);
+        }
 
-      [OneTimeTearDown]
-      public void ReportClose() => ReportManager.QuitExtentReport();
-   }
+        [OneTimeTearDown]
+        public void ReportClose() => ReportManager.QuitExtentReport();
+    }
 }

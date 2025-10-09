@@ -3,17 +3,17 @@ using Playwright.Parabank.Constants.Public;
 
 namespace Playwright.Parabank.Pages.Public
 {
-   internal class LookupPage
-   {
-      private readonly IPage _page;
+    internal class LookupPage
+    {
+        private readonly IPage _page;
 
-      private readonly Dictionary<string, ILocator> _lookupElements;
+        private readonly Dictionary<string, ILocator> _lookupElements;
 
-      public LookupPage(IPage page)
-      {
-         _page = page;
+        public LookupPage(IPage page)
+        {
+            _page = page;
 
-         _lookupElements = new Dictionary<string, ILocator>
+            _lookupElements = new Dictionary<string, ILocator>
          {
             { LookupPageConstants.LOOKUP_FIRST_NAME_FIELD, _page.Locator("#firstName") },
             { LookupPageConstants.LOOKUP_LAST_NAME_FIELD, _page.Locator("#lastName") },
@@ -26,18 +26,18 @@ namespace Playwright.Parabank.Pages.Public
             { LookupPageConstants.LOOKUP_LEFT_PANEL, _page.Locator("#leftPanel") },
             { LookupPageConstants.LOOKUP_RIGHT_PANEL, _page.Locator("#rightPanel") }
          };
-      }
+        }
 
-      public async Task EnterTextAsync(string field, string text)
-      {
-         await _lookupElements[field].ClearAsync();
-         await _lookupElements[field].FillAsync(text);
-      }
+        public async Task EnterTextAsync(string field, string text)
+        {
+            await _lookupElements[field].ClearAsync();
+            await _lookupElements[field].FillAsync(text);
+        }
 
-      public async Task<string> GetTextAsync(string field) => await _lookupElements[field].InnerTextAsync();
+        public async Task<string> GetTextAsync(string field) => await _lookupElements[field].InnerTextAsync();
 
-      public async Task ClickElementAsync(string field) => await _lookupElements[field].ClickAsync();
+        public async Task ClickElementAsync(string field) => await _lookupElements[field].ClickAsync();
 
-      public ILocator IsElementDisplayed(string field) => _lookupElements[field];
-   }
+        public ILocator IsElementDisplayed(string field) => _lookupElements[field];
+    }
 }

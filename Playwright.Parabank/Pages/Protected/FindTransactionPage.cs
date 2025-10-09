@@ -4,25 +4,25 @@ using Playwright.Parabank.Pages.Components;
 
 namespace Playwright.Parabank.Pages.Protected
 {
-   internal class FindTransactionPage
-   {
-      private readonly IPage _page;
+    internal class FindTransactionPage
+    {
+        private readonly IPage _page;
 
-      public FooterComponent _footer;
-      public HeaderComponent _header;
-      public MenuComponent _menu;
+        public FooterComponent _footer;
+        public HeaderComponent _header;
+        public MenuComponent _menu;
 
-      private Dictionary<string, ILocator> _ftElements;
+        private Dictionary<string, ILocator> _ftElements;
 
-      public FindTransactionPage(IPage page)
-      {
-         _page = page;
+        public FindTransactionPage(IPage page)
+        {
+            _page = page;
 
-         _footer = new FooterComponent(page);
-         _header = new HeaderComponent(page);
-         _menu = new MenuComponent(page);
+            _footer = new FooterComponent(page);
+            _header = new HeaderComponent(page);
+            _menu = new MenuComponent(page);
 
-         _ftElements = new Dictionary<string, ILocator>
+            _ftElements = new Dictionary<string, ILocator>
          {
             { FindTransactionPageConstants.FT_FORM, _page.Locator("#transactionForm") },
             { FindTransactionPageConstants.FT_RESULT, _page.Locator("#resultContainer") },
@@ -38,15 +38,15 @@ namespace Playwright.Parabank.Pages.Protected
             { FindTransactionPageConstants.FT_FIND_BY_DATE_RANGE_BUTTON, _page.GetByRole(AriaRole.Button).Locator("#findByDateRange") },
             { FindTransactionPageConstants.FT_FIND_BY_AMOUNT_BUTTON, _page.GetByRole(AriaRole.Button).Locator("#findByAmount") },
          };
-      }
+        }
 
-      public async Task SelectDropdownByLabelAsync(string field, string label) => await _ftElements[field]
-   .SelectOptionAsync(new SelectOptionValue { Label = label });
+        public async Task SelectDropdownByLabelAsync(string field, string label) => await _ftElements[field]
+     .SelectOptionAsync(new SelectOptionValue { Label = label });
 
-      public async Task<string> GetTextAsync(string field) => await _ftElements[field].InnerTextAsync();
+        public async Task<string> GetTextAsync(string field) => await _ftElements[field].InnerTextAsync();
 
-      public async Task ClickElementAsync(string field) => await _ftElements[field].ClickAsync();
+        public async Task ClickElementAsync(string field) => await _ftElements[field].ClickAsync();
 
-      public ILocator IsElementDisplayed(string field) => _ftElements[field];
-   }
+        public ILocator IsElementDisplayed(string field) => _ftElements[field];
+    }
 }

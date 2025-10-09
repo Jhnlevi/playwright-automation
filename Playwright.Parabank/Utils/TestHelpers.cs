@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Playwright.Parabank.Utils
 {
-   internal class TestHelpers
-   {
-   }
+    internal class TestHelpers
+    {
+    }
 }
