@@ -69,7 +69,6 @@ namespace Playwright.Parabank.Tests.UI.Protected
 
          var newAccountId = await _ona.GetTextAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_NEW_ID);
          var accountDetails = Page.Locator("#accountDetails");
-         SharedTestData.OtherAccountId = newAccountId;
 
          ReportManager.Log(_info, $"Clicking '{newAccountId}' to open account page.");
          await _ona.ClickElementAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_NEW_ID);

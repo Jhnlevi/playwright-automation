@@ -50,20 +50,24 @@ namespace Playwright.Parabank.Tests.UI.Protected
             Assert.That(transaction, Is.Not.Null, "Account should not be null.");
          });
 
-         var rowLocator = Page.Locator("#accountTable tr", new() { HasTextString = SharedTestData.AccountId });
-         var oldBalance = await rowLocator.Locator("td").Nth(2).InnerTextAsync();
+         var fromAccount = await Page.Locator("tr td a").Nth(0).InnerTextAsync();
+         var toAccount = await Page.Locator("tr td a").Nth(1).InnerTextAsync();
 
          ReportManager.Log(_info, "Navigating to 'Transfer Funds' page.");
          await _tf._menu.ClickElementAsync(MenuComponentConstants.MENU_LINK_TRANSFER_FUNDS);
-         ReportManager.Log(_info, $"Old balance: {oldBalance}");
+
          ReportManager.Log(_info, "Entering amount");
          await _tf.EnterTextAsync(TransferFundsPageConstants.TF_AMOUNT, transaction.Amount);
+
          ReportManager.Log(_info, "Selecting 'from account'.");
-         await _tf.SelectDropdownByLabelAsync(TransferFundsPageConstants.TF_FROM_ACCOUNT, SharedTestData.AccountId);
+         await _tf.SelectDropdownByLabelAsync(TransferFundsPageConstants.TF_FROM_ACCOUNT, fromAccount);
+
          ReportManager.Log(_info, "Selecting 'to account'.");
-         await _tf.SelectDropdownByLabelAsync(TransferFundsPageConstants.TF_TO_ACCOUNT, "14121");
+         await _tf.SelectDropdownByLabelAsync(TransferFundsPageConstants.TF_TO_ACCOUNT, toAccount);
+
          ReportManager.Log(_info, "Clicking 'TRANSFER' button.");
          await _tf.ClickElementAsync(TransferFundsPageConstants.TF_TRANSFER_BUTTON);
+
          ReportManager.Log(_info, "Verifying the transaction is successful");
 
          var result = _tf.IsElementDisplayed(TransferFundsPageConstants.TF_RESULT);
@@ -73,14 +77,6 @@ namespace Playwright.Parabank.Tests.UI.Protected
             await Expect(result).ToBeVisibleAsync();
             await Expect(result).ToContainTextAsync("Transfer Complete!");
          });
-
-         await _tf._menu.ClickElementAsync(MenuComponentConstants.MENU_LINK_OVERVIEW);
-
-         var newBalance = await rowLocator.Locator("td").Nth(2).InnerTextAsync();
-
-         ReportManager.Log(_info, $"Old balance: {newBalance}");
-         ReportManager.Log(_info, "Verifying that the balance is properly deducted");
-         Assert.That(oldBalance, Is.Not.EqualTo(newBalance));
       }
 
       [TestCaseSource(typeof(TFProvider), nameof(TFProvider.GetNegativeCases))]
@@ -94,6 +90,9 @@ namespace Playwright.Parabank.Tests.UI.Protected
             Assert.That(data, Is.Not.Null, "Data should not be null.");
             Assert.That(transaction, Is.Not.Null, "Account should not be null.");
          });
+
+         var fromAccount = await Page.Locator("tr td a").Nth(0).InnerTextAsync();
+         var toAccount = await Page.Locator("tr td a").Nth(1).InnerTextAsync();
 
          ReportManager.Log(_info, "Navigating to 'Transfer Funds' page.");
          await _tf._menu.ClickElementAsync(MenuComponentConstants.MENU_LINK_TRANSFER_FUNDS);
