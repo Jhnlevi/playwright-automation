@@ -53,7 +53,7 @@ namespace Playwright.Parabank.Tests.UI.Protected
          await _ona.SelectDropdownByLabelAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_TYPE, account.AccountType);
 
          ReportManager.Log(_info, $"Selecting an existing account.");
-         await _ona.SelectDropdownByLabelAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_EXISTING_ID, CustomTestContext.AccountId);
+         await _ona.SelectDropdownByLabelAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_EXISTING_ID, SharedTestData.AccountId);
 
          ReportManager.Log(_info, "Clicking 'OPEN NEW ACCOUNT' button.");
          await _ona.ClickElementAsync(OpenNewAccountPageConstants.ONA_BUTTON);
@@ -69,6 +69,7 @@ namespace Playwright.Parabank.Tests.UI.Protected
 
          var newAccountId = await _ona.GetTextAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_NEW_ID);
          var accountDetails = Page.Locator("#accountDetails");
+         SharedTestData.OtherAccountId = newAccountId;
 
          ReportManager.Log(_info, $"Clicking '{newAccountId}' to open account page.");
          await _ona.ClickElementAsync(OpenNewAccountPageConstants.ONA_ACCOUNT_NEW_ID);
