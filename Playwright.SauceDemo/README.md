@@ -3,6 +3,8 @@
 
 This is a **test automation project** built with **Playwright (.NET)** for the [SauceDemo](https://www.saucedemo.com/) website.
 
+<br>
+
 ## About The Project
 
 This project demonstrates a complete, production style setup for implementing clean architecture practices (POMs, configuration management, data driven testing) while also integrating with modern tooling such as Docker and GitHub Actions.
@@ -15,6 +17,7 @@ It performs both UI (User Interface) and End to End (E2E) testing to ensure Sauc
 
 - **Page Object Models (POMS)**: Organized and maintainable page classes.
 - **Data Driven testing**: Flexible test data through `.json` files, constants and dictionaries (.NET).
+- **Cross Browser Testing**: Supports execution across **Chromium, Firefox, and WebKit**, ensuring consistent behavior and compatibility across major browsers.
 - **Configuration Manager**: Centralized setting with `appsettings.json`.
 - **Reporting**: Integrated `ExtentReports` with screenshots capture on failed test runs.
 - **Playwright**: Fully utilizes Playwright's capabilities (`PageTest`, `Page`, `Expect`, and more) for reliable, expressive test automation.
@@ -26,38 +29,49 @@ It performs both UI (User Interface) and End to End (E2E) testing to ensure Sauc
 
 ## Installation
 
+These steps will set up the project locally, install required dependencies, and ensure all browsers are available for cross browser testing.
+
+- **Prerequisites:**
+  - [.NET SDK 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+  - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (optional, if using Docker commands)
+
 - **Clone the repository:**
 
 ```
-git clone https://github.com/Jhnlevi/playwright-automation.git
+# For the repository url: Go to the repository, click "<> Code", copy the url, and paste it in <repository-url>.
 
-cd Playwright.SauceDemo
+  git clone <repository-url>
+
+  cd Playwright.SauceDemo
 ```
-
-- **Prerequisites:**
-  - .NET 8.0 SDK
-  - Docker Desktop (optional, if using Docker)
 
 - **Restore .NET dependencies:**
 
 ```
-dotnet restore
+  dotnet restore
 ```
 
 - **Install Playwright Browsers (Windows):**
 
   From the project root, run:
 ```
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# Allow running scripts for Playwright installation
 
-.\bin\Debug\net8.0\playwright.ps1 install
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Install Playwright browsers
+  
+  .\bin\Debug\net8.0\playwright.ps1 install
+
 ```
 
 - **Install Playwright Browsers (Linux/macOS):**
 
   From the project root, run:
 ```
-dotnet run --project Playwright.SauceDemo -- install
+# Install Playwright browsers
+
+  dotnet run --project Playwright.SauceDemo -- install
 ```
 
 <p align="right">(<a href="#top-read">back to top</a>)</p>
@@ -67,20 +81,34 @@ dotnet run --project Playwright.SauceDemo -- install
 - **Run tests locally:**
 
 ```
-dotnet test
+# Run all tests:
+
+  dotnet test
+
+# Run a single test:
+
+  dotnet test --filter "TestName=YourTestName"
+
+# Run tests in Chromium only:
+
+  dotnet test -- TestBrowser=chromium
+
+# Run tests in Firefox:
+  
+  dotnet test -- TestBrowser=firefox
 ```
 
 - **Run tests in Docker:**
 
 ```
-docker compose build playwright-saucedemo
+  docker compose build saucedemo
 
-docker compose run --rm playwright-saucedemo
+  docker compose run --rm saucedemo
 ```
 
 - **Run tests in CI:**
 
-  *GitHub Actions is pre-configured to run tests inside the Docker container automatically.**
+  *GitHub Actions is configured to run tests inside the Docker container automatically (Check CI YAML file in the file structure).*
 
 <p align="right">(<a href="#top-read">back to top</a>)</p>
 
@@ -92,6 +120,7 @@ PlaywrightAutomation.sln                 # The solution file
     workflows/
       ci-playwright.yml                  # GitHub Actions CI pipeline
   docker-compose.yml                     # Docker compose file 
+
 Playwright.SauceDemo/                    # The main project root
   Constants/                             # Contains dictionary keys and constants for POMs, and tests
   Models/                                # Contains all data models to map .json files
@@ -100,14 +129,24 @@ Playwright.SauceDemo/                    # The main project root
     Screenshots/                         # Contains screenshots captured on test failures
   TestData/                              # Contains .json files for data driven testing
   Tests/                                 # Contains all test classes
-    E2E/                                 # Contains E2E tests
-    UI/                                  # Contains UI tests
   Utils/                                 # Contains all utility classes
-    Providers/                           # Contains .json provider utility classes for data driven testing
   appsettings.json 
   Dockerfile                             # Custom docker image for this project
   .dockerignore                          # Files/folders ignored in Docker build
 ```
+
+### Explanation of Key Folders:
+
+- **Constants/**: Holds keys and constants used throughout POMs and test classes to improve maintainability.
+- **Models/**:  Maps JSON test data into structured objects for cleaner, reusable code.
+- **Pages/**:  Implements the Page Object Model, encapsulating locators and page actions.
+- **Reports/**: Contains test reports and screenshots for debugging failures.
+- **TestData/**: JSON files that feed test inputs for Data Driven Tests (DDT).
+- **Tests/**: Divided into UI and E2E (full workflow) test classes.
+- **Utils/**: Utility or helper functions used across tests and page objects.
+- **appsettings.json**: Centralized configuration for environments, URLs, and browser settings.
+- **Dockerfile & docker-compose.yml**: Optional Docker setup to run tests in a consistent environment.
+- **.github/workflows/**: CI/CD configuration using GitHub Actions to automate test execution.
 
 <p align="right">(<a href="#top-read">back to top</a>)</p>
 
