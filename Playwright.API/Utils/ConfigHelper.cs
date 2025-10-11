@@ -4,7 +4,7 @@ namespace Playwright.API.Utils
 {
    internal static class ConfigHelper
    {
-      public static T Load<T>(string? fileName = "appsettings.json")
+      public static T Load<T>(string fileName = "appsettings.json")
       {
          var config = new ConfigurationBuilder()
              .SetBasePath(ProjectPathHelper.GetConfigPath())
@@ -15,7 +15,7 @@ namespace Playwright.API.Utils
          return config.Get<T>()!;
       }
 
-      public static T Load<T>(string? fileName = "appsettings.json", string? sectionName = "")
+      public static T Load<T>(string fileName = "appsettings.json", string? sectionName = "")
       {
          var config = new ConfigurationBuilder()
              .SetBasePath(ProjectPathHelper.GetConfigPath())
