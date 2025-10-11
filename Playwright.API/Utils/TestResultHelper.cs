@@ -2,7 +2,7 @@
 {
    internal static class TestResultHelper
    {
-      public static void LogResultsAsync(
+      public static void LogResults(
            string status,
            string message,
            string trace)
