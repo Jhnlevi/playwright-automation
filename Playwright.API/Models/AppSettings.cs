@@ -8,22 +8,10 @@ namespace Playwright.API.Models
       public string AppName { get; set; } = null!;
 
       [JsonPropertyName("environments")]
-      public Environments Environments { get; set; } = null!;
+      public Dictionary<string, EnvSettings> Environments { get; set; } = null!;
    }
 
-   public class Environments
-   {
-      [JsonPropertyName("dev")]
-      public Dev Dev { get; set; } = null!;
-
-      [JsonPropertyName("qa")]
-      public Qa Qa { get; set; } = null!;
-
-      [JsonPropertyName("production")]
-      public Production Production { get; set; } = null!;
-   }
-
-   public class Dev
+   public class EnvSettings
    {
       [JsonPropertyName("baseUrl")]
       public string BaseUrl { get; set; } = null!;
@@ -32,23 +20,44 @@ namespace Playwright.API.Models
       public DefaultHeaders DefaultHeaders { get; set; } = null!;
    }
 
-   public class Qa
-   {
-      [JsonPropertyName("baseUrl")]
-      public string BaseUrl { get; set; } = null!;
+   //public class Environments
+   //{
+   //   [JsonPropertyName("dev")]
+   //   public Dev Dev { get; set; } = null!;
 
-      [JsonPropertyName("defaultHeaders")]
-      public DefaultHeaders DefaultHeaders { get; set; } = null!;
-   }
+   //   [JsonPropertyName("qa")]
+   //   public Qa Qa { get; set; } = null!;
 
-   public class Production
-   {
-      [JsonPropertyName("baseUrl")]
-      public string BaseUrl { get; set; } = null!;
+   //   [JsonPropertyName("production")]
+   //   public Production Production { get; set; } = null!;
+   //}
 
-      [JsonPropertyName("defaultHeaders")]
-      public DefaultHeaders DefaultHeaders { get; set; } = null!;
-   }
+   //public class Dev
+   //{
+   //   [JsonPropertyName("baseUrl")]
+   //   public string BaseUrl { get; set; } = null!;
+
+   //   [JsonPropertyName("defaultHeaders")]
+   //   public DefaultHeaders DefaultHeaders { get; set; } = null!;
+   //}
+
+   //public class Qa
+   //{
+   //   [JsonPropertyName("baseUrl")]
+   //   public string BaseUrl { get; set; } = null!;
+
+   //   [JsonPropertyName("defaultHeaders")]
+   //   public DefaultHeaders DefaultHeaders { get; set; } = null!;
+   //}
+
+   //public class Production
+   //{
+   //   [JsonPropertyName("baseUrl")]
+   //   public string BaseUrl { get; set; } = null!;
+
+   //   [JsonPropertyName("defaultHeaders")]
+   //   public DefaultHeaders DefaultHeaders { get; set; } = null!;
+   //}
 
    public class DefaultHeaders
    {
