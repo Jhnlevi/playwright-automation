@@ -2,8 +2,6 @@
 
 <br>
 <br>
-<br>
-<br>
 
 <div align="center">
  <h1>Playwright Automation (.NET)</h1>
@@ -17,7 +15,7 @@
 <br>
 <br>
 <br>
-<br>
+
 
 ## About
 
@@ -45,7 +43,7 @@ Whether you're exploring automated testing concepts or looking for a template fo
 
 - **[ParaBank Automation (Playwright .NET):](./Playwright.Parabank/README.md)**
 
-  *A UI-focused automation project for the [Parabank](https://parabank.parasoft.com/parabank/index.htm) website. This project highlights cross browser testing, Page Object Models (POM), Data Driven Testing (DDT), and structured configuration management. It was created to further strengthen my Playwright and automation testing skills, particularly in locators, assertions, and test design principles.*
+  *A UI focused automation project for the [Parabank](https://parabank.parasoft.com/parabank/index.htm) website. This project highlights cross browser testing, Page Object Models (POM), Data Driven Testing (DDT), and structured configuration management. It was created to further strengthen my Playwright and automation testing skills, particularly in locators, assertions, and test design principles.*
 
 *(More projects will be added as I expand my automation portfolio.)*
 
