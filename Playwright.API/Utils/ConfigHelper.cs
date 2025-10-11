@@ -14,6 +14,7 @@ namespace Playwright.API.Utils
 
          return config.Get<T>()!;
       }
+
       public static T Load<T>(string? fileName = "appsettings.json", string? sectionName = "")
       {
          var config = new ConfigurationBuilder()
