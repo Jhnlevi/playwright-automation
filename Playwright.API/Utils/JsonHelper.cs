@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Playwright.API.Utils
 {
-   internal class JsonHelper
-   {
-   }
+    internal class JsonHelper
+    {
+    }
 }
