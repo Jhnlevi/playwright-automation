@@ -13,7 +13,7 @@ namespace Playwright.API.Utils
       // Writing json
       public static string Write<T>(T data)
       {
-         return JsonSerializer.Serialize<T>(data);
+         return JsonSerializer.Serialize(data);
       }
    }
 }
