@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace Playwright.API.Utils
 {
-    internal class JsonHelper
-    {
-    }
+   internal static class JsonHelper
+   {
+      // Reading json
+      public static T Read<T>(string data)
+      {
+         return JsonSerializer.Deserialize<T>(data)!;
+      }
+
+      // Writing json
+      public static string Write<T>(T data)
+      {
+         return JsonSerializer.Serialize(data);
+      }
+   }
 }
