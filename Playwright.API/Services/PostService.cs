@@ -22,6 +22,6 @@ namespace Playwright.API.Services
 
       public async Task<IAPIResponse> GetPostsAsync() => await _apiHelper.GetAsync("/posts");
 
-      public Task<IAPIResponse> UpdatePostAsync(PostModel post, int id) => _apiHelper.UpdateAsync("/posts", post, id);
+      public async Task<IAPIResponse> UpdatePostAsync(PostModel post, int id) => await _apiHelper.UpdateAsync("/posts", post, id);
    }
 }
