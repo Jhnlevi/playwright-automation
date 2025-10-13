@@ -14,11 +14,7 @@ namespace Playwright.API.Services
          _apiHelper = apiHelper;
       }
 
-      public async Task<IAPIResponse> CreatePostAsync(PostModel post)
-      {
-         var body = JsonHelper.Write<PostModel>(post);
-         return await _apiHelper.PostAsync("/posts", body);
-      }
+      public async Task<IAPIResponse> CreatePostAsync(PostModel post) => await _apiHelper.PostAsync("/posts", post);
 
       public async Task<IAPIResponse> DeletePostAsync(int id) => await _apiHelper.DeleteAsync("/posts", id);
 
@@ -26,9 +22,6 @@ namespace Playwright.API.Services
 
       public async Task<IAPIResponse> GetPostsAsync() => await _apiHelper.GetAsync("/posts");
 
-      public Task<IAPIResponse> UpdatePostAsync(PostModel post, int id)
-      {
-         throw new NotImplementedException();
-      }
+      public Task<IAPIResponse> UpdatePostAsync(PostModel post, int id) => _apiHelper.UpdateAsync("/posts", post, id);
    }
 }
