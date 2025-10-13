@@ -1,72 +1,61 @@
 ﻿using Microsoft.Playwright;
 using Playwright.API.Models;
+using Playwright.API.Services;
 using Playwright.API.Utils;
 
 namespace Playwright.API.Tests
 {
-    internal class BaseTest
-    {
-        protected AppSettings _config;
-        protected IAPIRequestContext _context;
-        protected ApiHelper _apiHelper;
+   internal abstract class BaseTest
+   {
+      protected AppSettings _config;
+      protected IAPIRequestContext _context = null!;
+      protected ApiHelper _apiHelper;
+      protected PostService _postService;
 
-        [OneTimeSetUp]
-        public async Task GlobalSetup()
-        {
-            _config = ConfigHelper.Load<AppSettings>("appsettings.json");
+      [OneTimeSetUp]
+      public async Task GlobalSetup()
+      {
+         // Load appsettings.json
+         _config = ConfigHelper.Load<AppSettings>("appsettings.json");
 
-            var environment = "qa";
+         // Initialize helper and services
+         _apiHelper = new ApiHelper(_context);
+         _postService = new PostService(_apiHelper);
 
-            await CreateAPIRequestContext(environment);
+         // Create new API context
+         await _apiHelper.InitializeAsync(_config, "qa");
 
-            ReportManager.CreateExtentReport(_config.AppName);
-        }
+         // Set up extent report
+         ReportManager.CreateExtentReport(_config.AppName);
+      }
 
-        private async Task CreateAPIRequestContext(string env = "dev")
-        {
-            var envSettings = _config.Environments[env];
+      [SetUp]
+      public virtual void setup()
+      {
+         // Set up extent test
+         ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
+      }
 
-            var headers = new Dictionary<string, string>
-         {
-            { "Accept", envSettings.DefaultHeaders.Accept },
-            { "Content-Type", envSettings.DefaultHeaders.ContentType }
-         };
+      [TearDown]
+      public void Teardown()
+      {
+         var context = TestContext.CurrentContext;
+         var status = context.Result.Outcome.Status.ToString();
+         var message = context.Result.Message ?? string.Empty;
+         var trace = context.Result.StackTrace ?? string.Empty;
 
-            var pw = await Microsoft.Playwright.Playwright.CreateAsync();
+         // Log test results to extent report
+         TestResultHelper.LogResults(status, message, trace);
+      }
 
-            _context = await pw.APIRequest.NewContextAsync(new()
-            {
-                BaseURL = envSettings.BaseUrl,
-                ExtraHTTPHeaders = headers
-            });
+      [OneTimeTearDown]
+      public async Task GlobalTearDown()
+      {
+         // Close extent report
+         ReportManager.QuitExtentReport();
 
-            _apiHelper = new ApiHelper(_context);
-        }
-
-        [SetUp]
-        public virtual void setup()
-        {
-            ReportManager.CreateExtentTest(TestContext.CurrentContext.Test.Name);
-        }
-
-        [TearDown]
-        public void Teardown()
-        {
-            var context = TestContext.CurrentContext;
-            var status = context.Result.Outcome.Status.ToString();
-            var message = context.Result.Message ?? string.Empty;
-            var trace = context.Result.StackTrace ?? string.Empty;
-
-            TestResultHelper.LogResults(status, message, trace);
-        }
-
-        [OneTimeTearDown]
-        public async Task GlobalTearDown()
-        {
-            ReportManager.QuitExtentReport();
-
-            if (_context != null)
-                await _context.DisposeAsync();
-        }
-    }
+         // Dispose API context
+         await _apiHelper.DisposeAsync();
+      }
+   }
 }
