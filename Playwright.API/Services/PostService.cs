@@ -17,7 +17,7 @@ namespace Playwright.API.Services
          _apiHelper = apiHelper;
       }
 
-      public async Task<IAPIResponse> CreatePostAsync(PostModel post) => await _apiHelper.PostAsync(endpoint, post);
+      public async Task<IAPIResponse> CreatePostAsync(PostModel post) => await _apiHelper.CreateAsync(endpoint, post);
 
       public async Task<IAPIResponse> DeletePostAsync(int id) => await _apiHelper.DeleteAsync(endpoint, id);
 

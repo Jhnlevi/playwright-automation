@@ -11,6 +11,7 @@ namespace Playwright.API.Tests
       protected IAPIRequestContext _context = null!;
       protected ApiHelper _apiHelper;
       protected PostService _postService;
+      protected UserService _userService;
 
       [OneTimeSetUp]
       public async Task GlobalSetup()
@@ -21,6 +22,7 @@ namespace Playwright.API.Tests
          // Initialize helper and services
          _apiHelper = new ApiHelper(_context);
          _postService = new PostService(_apiHelper);
+         _userService = new UserService(_apiHelper);
 
          // Create new API context
          await _apiHelper.InitializeAsync(_config, "qa");
