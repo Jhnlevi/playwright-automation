@@ -1,10 +1,11 @@
 ﻿using Microsoft.Playwright;
 using Playwright.API.Models.User;
+using Playwright.API.Services.Interfaces;
 using Playwright.API.Utils;
 
 namespace Playwright.API.Services
 {
-   internal class UserService
+   internal class UserService : IUserService
    {
       private readonly ApiHelper _apiHelper;
 
