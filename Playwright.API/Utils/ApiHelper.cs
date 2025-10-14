@@ -43,7 +43,7 @@ namespace Playwright.API.Utils
 
       public async Task<IAPIResponse> GetByIdAsync(string endpoint, int id) => await _context.GetAsync($"{endpoint}/{id}");
 
-      public async Task<IAPIResponse> PostAsync(string endpoint, object data) => await _context.PostAsync(endpoint, new APIRequestContextOptions { DataObject = data });
+      public async Task<IAPIResponse> CreateAsync(string endpoint, object data) => await _context.PostAsync(endpoint, new APIRequestContextOptions { DataObject = data });
 
       public async Task<IAPIResponse> UpdateAsync(string endpoint, object data, int id) => await _context.PutAsync($"{endpoint}/{id}", new APIRequestContextOptions { DataObject = data });
 
