@@ -48,7 +48,7 @@ These steps will set up the project locally, install required dependencies, and 
 - **Restore .NET dependencies:**
 
 ```
-dotnet restore
+  dotnet restore
 ```
 
 - **Install Playwright Browsers (Windows):**
