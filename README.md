@@ -45,6 +45,10 @@ Whether you're exploring automated testing concepts or looking for a template fo
 
   *A UI focused automation project for the [Parabank](https://parabank.parasoft.com/parabank/index.htm) website. This project highlights cross browser testing, Page Object Models (POM), Data Driven Testing (DDT), and structured configuration management. It was created to further strengthen my Playwright and automation testing skills, particularly in locators, assertions, and test design principles.*
 
+- **[JsonPlaceHolder API Automation (Playwright .NET):](./Playwright.API/README.md)**
+
+  *An API focused automation project built with Playwright (.NET) for the [JsonPlaceholder](https://jsonplaceholder.typicode.com/) REST API. This project demonstrates API test design, request/response validation, and structured configuration management. It was created to strengthen my skills in API automation, Playwright’s testing framework, and reporting using ExtentReports.**
+
 *(More projects will be added as I expand my automation portfolio.)*
 
 <p align="right">(<a href="#top-read">back to top</a>)</p>
@@ -64,8 +68,8 @@ Whether you're exploring automated testing concepts or looking for a template fo
 Planned improvements for this repository include:
 
 - [x] **Cross Browser Testing**: Running tests across browsers to ensure consistent behavior and compatibility
+- [x] **API Testing Integration**: Adding automated API tests to complement UI and E2E tests, demonstrating full stack test coverage.
 - [ ] **Parallel Test Execution**: Running tests concurrently to improve efficiency and reduce overall test runtime.  
-- [ ] **API Testing Integration**: Adding automated API tests to complement UI and E2E tests, demonstrating full stack test coverage.
 
 <p align="right">(<a href="#top-read">back to top</a>)</p>
 

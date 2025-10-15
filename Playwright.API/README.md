@@ -1,29 +1,24 @@
 ﻿<a id="top-read"></a>
-# ParaBank Automation (Playwright .NET) 
+# JsonPlaceholder API Automation (Playwright .NET) 
 
-This is a **test automation project** built with **Playwright (.NET)** for the [Parabank](https://parabank.parasoft.com/parabank/index.htm) website.
+This is an **API test automation project** built with **Playwright (.NET)** for the [JsonPlacehodler](https://jsonplaceholder.typicode.com/) API.
 
 <br>
 
 ## About The Project
 
-This project focuses on automating the user interface workflows of Parabank using Playwright with C#. Similar to my first project, this project showcases a clean, maintainable automation framework based on the Page Object Model (POM), data driven testing, and structured configuration management.
+This project focuses on automating the testing of the JsonPlaceholder API endpoints using Playwright with C#. The primary goal is to gain hands-on experience in **API automation testing** and to further strengthen my Playwright and overall automation testing skills.
 
-The primary goal of this project is to further strengthen my **Playwright** and automation testing skills, particularly in mastering **locators, assertions, and test design principles** to build reliable, scalable, and maintainable UI tests.
+The project follows testing best practices similar to my other automation projects. It is designed purely with testing in mind, without CI/CD or Docker integration, as my current focus is on becoming fully familiar with API testing fundamentals.
 
 <p align="right">(<a href="#top-read">back to top</a>)</p>
 
 ## Features
 
-- **Page Object Models (POMS)**: Organized and maintainable page classes.
-- **Data Driven testing**: Flexible test data through `.json` files, constants and dictionaries (.NET).
-- **Cross Browser Testing**: Supports execution across **Chromium, Firefox, and WebKit**, ensuring consistent behavior and compatibility across major browsers.
+- **API Helper**: Handles HTTP requests and responses for all API endpoints, providing reusable methods for `GET`, `POST`, `PUT`, and `DELETE` operations.
 - **Configuration Manager**: Centralized setting with `appsettings.json`.
-- **Reporting**: Integrated `ExtentReports` with screenshots capture on failed test runs.
-- **Playwright**: Fully utilizes Playwright's capabilities (`PageTest`, `Page`, `Expect`, and more) for reliable, expressive test automation.
-- **Docker Integration**: Packaged into a custom Docker image with `docker-compose` support, enabling consistent, reproducible test runs across environments.
-- **Continuous Integration**: Integrated GitHub Actions pipeline that runs tests inside the custom Docker image for reliable CI/CD automation.  
-- **Test Coverage**: Comprehensive **UI** test scenarios using NUnit attributes covering the modules: 'Login', 'Register', 'Logout', 'Transfer Funds', and 'Open New Account'.
+- **Reporting**: Integrated `ExtentReports` with detailed logging and automatic report generation after each test run.
+- **Playwright**: Utilizes Playwright's robust test runner and assertion library (`Test`, `Expect`, and more) to structure and validate API tests effectively without involving any browser automation.
 
 <p align="right">(<a href="#top-read">back to top</a>)</p>
 
@@ -33,7 +28,6 @@ These steps will set up the project locally, install required dependencies, and 
 
 - **Prerequisites:**
   - [.NET SDK 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-  - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (optional, if using Docker commands)
 
 - **Clone the repository:**
 
@@ -42,7 +36,7 @@ These steps will set up the project locally, install required dependencies, and 
 
   git clone <repository-url>
 
-  cd Playwright.Parabank
+  cd Playwright.API
 ```
 
 - **Restore .NET dependencies:**
@@ -71,7 +65,7 @@ These steps will set up the project locally, install required dependencies, and 
 ```
 # Install Playwright browsers
 
-  dotnet run --project Playwright.Parabank -- install
+  dotnet run --project Playwright.API -- install
 ```
 
 <p align="right">(<a href="#top-read">back to top</a>)</p>
@@ -98,18 +92,6 @@ These steps will set up the project locally, install required dependencies, and 
   dotnet test -- TestBrowser=firefox
 ```
 
-- **Run tests in Docker:**
-
-```
-  docker compose build parabank
-
-  docker compose run --rm parabank
-```
-
-- **Run tests in CI:**
-
-  *GitHub Actions is configured to run tests inside the Docker container automatically (Check CI YAML file in the file structure).*
-
 <p align="right">(<a href="#top-read">back to top</a>)</p>
 
 ## Project Structure
@@ -121,32 +103,25 @@ PlaywrightAutomation.sln                 # The solution file
       ci-playwright.yml                  # GitHub Actions CI pipeline
   docker-compose.yml                     # Docker compose file 
 
-Playwright.Parabank/                    # The main project root
-  Constants/                             # Contains dictionary keys and constants for POMs, and tests
+Playwright.API/                    # The main project root
   Models/                                # Contains all data models to map .json files
-  Pages/                                 # Contains Page Object Model classes
   Reports/                               # Contains all reports (ExtentReports)
-    Screenshots/                         # Contains screenshots captured on test failures
-  TestData/                              # Contains .json files for data driven testing
+  Services/                              # Contains service classes for API
+    Interfaces/                          # Contains interface classes for services
   Tests/                                 # Contains all test classes
   Utils/                                 # Contains all utility classes
   appsettings.json 
-  Dockerfile                             # Custom docker image for this project
-  .dockerignore                          # Files/folders ignored in Docker build
 ```
 
 ### Explanation of Key Folders:
 
-- **Constants/**: Holds keys and constants used throughout POMs and test classes to improve maintainability.
 - **Models/**:  Maps JSON test data into structured objects for cleaner, reusable code.
-- **Pages/**:  Implements the Page Object Model, encapsulating locators and page actions.
 - **Reports/**: Contains test reports and screenshots for debugging failures.
-- **TestData/**: JSON files that feed test inputs for Data Driven Tests (DDT).
+- **Services/**: Contains service classes.
+- **Interfaces/**: Contains interface classes.
 - **Tests/**: Divided into UI and E2E (full workflow) test classes.
 - **Utils/**: Utility or helper functions used across tests and page objects.
 - **appsettings.json**: Centralized configuration for environments, URLs, and browser settings.
-- **Dockerfile & docker-compose.yml**: Optional Docker setup to run tests in a consistent environment.
-- **.github/workflows/**: CI/CD configuration using GitHub Actions to automate test execution.
 
 <p align="right">(<a href="#top-read">back to top</a>)</p>
 
